@@ -1,0 +1,38 @@
+#######################
+# CraftManager Messages
+####################### 
+# Be aware that some values here may change with upcoming updates
+### Do not forget to wrap each message in '' quotes
+
+prefix: '&9[CountryCraft]&r '
+
+exception:
+  nea: '&4Not enough arguments!'
+  tma: '&4Too many arguments!'
+  noperm: '&4You do not have permission &b({0}) &4to run &6{1}'
+  notplayer: '&4This command can be only executed by a player!'
+  playernotonline: '&7{0} &4 is not online!'
+  
+fly:
+  player:
+    true: '&6FLY&f -> &aON'
+    false: '&6FLY&f -> &cOFF'
+  broadcast:
+    true: 
+    false:
+sethealth:
+  player: 
+  broadcast: 
+setfood:
+  player: 
+  broadcast: 
+staffchat: '&7{0}&r: {1}'
+debugmode:
+  set:
+    player:
+    broadcast:
+  get:
+teleport:
+  player:
+    lobby:
+  broadcast:
