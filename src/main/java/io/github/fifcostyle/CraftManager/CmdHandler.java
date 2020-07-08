@@ -10,6 +10,7 @@ import io.github.fifcostyle.CraftManager.commands.FeedCommand;
 import io.github.fifcostyle.CraftManager.commands.FlyCommand;
 import io.github.fifcostyle.CraftManager.commands.HealCommand;
 import io.github.fifcostyle.CraftManager.commands.KillCommand;
+import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
 import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
@@ -43,6 +44,18 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "sc":
 			cmd = new StaffChatCommand(sender);
+			break;
+		case "lobby":
+			cmd = new LobbyCommand(sender);
+			break;
+		case "l":
+			cmd = new LobbyCommand(sender);
+			break;
+		case "hub":
+			cmd = new LobbyCommand(sender);
+			break;
+		case "h":
+			cmd = new LobbyCommand(sender);
 			break;
 		}
 		try {

@@ -1,7 +1,9 @@
 package io.github.fifcostyle.CraftManager.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import io.github.fifcostyle.CraftManager.CraftManager;
 import io.github.fifcostyle.CraftManager.events.TeleportEvent;
@@ -18,15 +20,42 @@ public class LobbyCommand extends CMD {
 	public static final String USAGE = "/clear [player] | /ci [player]";
 	public static final String[] SUB;
 	CraftManager craft;
+	Player target;
 	TeleportEvent event;
 	
 	public LobbyCommand(final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void run(CommandSender sender, Command cmd, String label, String[] args) throws TmAException, NoPermException, NotPlayerException, PNOException
 	{
+		if (args.length == 0)
+		{
+			if (this.hasPermission(SUB[0]))
+			{
+				if (this.isPlayer())
+				{
+					target = (Player) sender;
+					event = new TeleportEvent(true, sender, target, "HUB");
+				}
+				else throw new NotPlayerException();
+			}
+			else throw new NoPermException();
+		}
+		else if (args.length == 1)
+		{
+			if (this.hasPermission(SUB[1]))
+			{
+				target = Bukkit.getPlayer(args[0]);
+				if (target != null) event = new TeleportEvent(true, sender, target, "HUB");
+				else throw new PNOException(args[0]);
+			}
+			else throw new NoPermException();
+		}
+		else if (args.length > 1) throw new TmAException();
 		
+		if (event != null) Bukkit.getPluginManager().callEvent(event);
 	}
 	
 	static {
