@@ -36,3 +36,8 @@ teleport:
   player: '&6LOCATION&f -> &e{0}'
     lobby: '&6LOCATION&f -> &e{LOBBY}'
   broadcast:
+gamemode:
+  set:
+    player: '&6GAMEMODE&f -> &e{0}'
+    broadcast: 
+  get: '&6GAMEMODE&f -> &e{0}'
