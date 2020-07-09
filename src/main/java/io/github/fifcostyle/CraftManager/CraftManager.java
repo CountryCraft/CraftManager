@@ -36,6 +36,17 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("feed").setExecutor(new CmdHandler());
 		this.getCommand("staffchat").setExecutor(new CmdHandler());
 		this.getCommand("sc").setExecutor(new CmdHandler());
+		this.getCommand("lobby").setExecutor(new CmdHandler());
+		this.getCommand("l").setExecutor(new CmdHandler());
+		this.getCommand("hub").setExecutor(new CmdHandler());
+		this.getCommand("h").setExecutor(new CmdHandler());
+		this.getCommand("sudo").setExecutor(new CmdHandler());
+		this.getCommand("gamemode").setExecutor(new CmdHandler());
+		this.getCommand("gm").setExecutor(new CmdHandler());
+		this.getCommand("gms").setExecutor(new CmdHandler());
+		this.getCommand("gmc").setExecutor(new CmdHandler());
+		this.getCommand("gma").setExecutor(new CmdHandler());
+		this.getCommand("gmsp").setExecutor(new CmdHandler());
 		lgr.info("CraftManager has been enabled!");
 	}
 	
