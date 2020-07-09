@@ -10,10 +10,19 @@ import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
+import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
 public abstract class CMD {
 	
+	/*
+	public static final String NAME = "";
+	public static final String DESC = "";
+	public static final String PERM = "";
+	public static final String USAGE = "";
+	public static final String[] SUB;
+	CraftManager craft;
+	*/
 	private final CommandSender sender;
 	private final String name;
 	private final String description;
@@ -76,6 +85,6 @@ public abstract class CMD {
     }
     
 	
-	public abstract void run (final CommandSender p0, final Command p1, final String p2, final String[] p3) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException;
+	public abstract void run (final CommandSender p0, final Command p1, final String p2, final String[] p3) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException, PlayerImmuneException;
 
 }
