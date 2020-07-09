@@ -16,6 +16,7 @@ import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
+import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
 public class CmdHandler implements CommandExecutor {
@@ -63,7 +64,7 @@ public class CmdHandler implements CommandExecutor {
 		}
 		catch (TmAException e) {
 			sender.sendMessage(craft.getMessager().format("exception.tma"));
-		} 
+		}
 		catch (NeAException e) {
 			sender.sendMessage(craft.getMessager().format("exception.nea"));
 		}
@@ -76,7 +77,9 @@ public class CmdHandler implements CommandExecutor {
 		catch (PNOException e) {
 			sender.sendMessage(craft.getMessager().format("exception.playernotonline", e.getMessage()));
 		}
+		catch (PlayerImmuneException e) {
+			sender.sendMessage(craft.getMessager().format("exception.playerimmune", e.getMessage()));
+		}
 		return false;
 	}
-
 }
