@@ -8,10 +8,12 @@ import io.github.fifcostyle.CraftManager.commands.CMD;
 import io.github.fifcostyle.CraftManager.commands.DebugCommand;
 import io.github.fifcostyle.CraftManager.commands.FeedCommand;
 import io.github.fifcostyle.CraftManager.commands.FlyCommand;
+import io.github.fifcostyle.CraftManager.commands.GamemodeCommand;
 import io.github.fifcostyle.CraftManager.commands.HealCommand;
 import io.github.fifcostyle.CraftManager.commands.KillCommand;
 import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
 import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
+import io.github.fifcostyle.CraftManager.commands.SudoCommand;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
@@ -57,6 +59,27 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "h":
 			cmd = new LobbyCommand(sender);
+			break;
+		case "sudo":
+			cmd = new SudoCommand(sender);
+			break;
+		case "gamemode":
+			cmd = new GamemodeCommand(sender);
+			break;
+		case "gm":
+			cmd = new GamemodeCommand(sender);
+			break;
+		case "gms":
+			cmd = new GamemodeCommand(sender);
+			break;
+		case "gmc":
+			cmd = new GamemodeCommand(sender);
+			break;
+		case "gma":
+			cmd = new GamemodeCommand(sender);
+			break;
+		case "gmsp":
+			cmd = new GamemodeCommand(sender);
 			break;
 		}
 		try {

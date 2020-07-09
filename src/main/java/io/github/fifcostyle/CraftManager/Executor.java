@@ -10,8 +10,10 @@ import io.github.fifcostyle.CraftManager.events.GetDebugEvent;
 import io.github.fifcostyle.CraftManager.events.SetDebugEvent;
 import io.github.fifcostyle.CraftManager.events.SetFlyEvent;
 import io.github.fifcostyle.CraftManager.events.SetFoodEvent;
+import io.github.fifcostyle.CraftManager.events.SetGamemodeEvent;
 import io.github.fifcostyle.CraftManager.events.SetHealthEvent;
 import io.github.fifcostyle.CraftManager.events.StaffChatEvent;
+import io.github.fifcostyle.CraftManager.events.SudoEvent;
 import io.github.fifcostyle.CraftManager.events.TeleportEvent;
 
 public class Executor implements Listener {
@@ -87,6 +89,19 @@ public class Executor implements Listener {
 			//add broadcast
 			break;
 		}
+	}
+	
+	@EventHandler
+	public void Sudo(SudoEvent e) {
+		e.getTarget().performCommand(e.getCommand());
+		e.getSender().sendMessage(craft.getMessager().prefix(""));
+	}
+	
+	@EventHandler
+	public void SetGamemode(SetGamemodeEvent e) {
+		e.getTarget().setGameMode(e.getGM());
+		e.getTarget().sendMessage(craft.getMessager().format("gamemode.set.player", e.getGM().toString()));
+		//add broadcast
 	}
 	
 	
