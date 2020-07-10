@@ -14,11 +14,13 @@ import io.github.fifcostyle.CraftManager.commands.KillCommand;
 import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
 import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.commands.SudoCommand;
+import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
+import io.github.fifcostyle.CraftManager.exceptions.StrNotIntException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
 public class CmdHandler implements CommandExecutor {
@@ -102,6 +104,12 @@ public class CmdHandler implements CommandExecutor {
 		}
 		catch (PlayerImmuneException e) {
 			sender.sendMessage(craft.getMessager().format("exception.playerimmune", e.getMessage()));
+		}
+		catch (InvalidItemException e) {
+			sender.sendMessage(craft.getMessager().format("exception.invaliditem", e.getMessage()));
+		}
+		catch (StrNotIntException e) {
+			sender.sendMessage(craft.getMessager().format("exception.strnotint", e.getMessage()));
 		}
 		return false;
 	}

@@ -6,11 +6,13 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.RemoteConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
+import io.github.fifcostyle.CraftManager.exceptions.StrNotIntException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
 public abstract class CMD {
@@ -85,6 +87,6 @@ public abstract class CMD {
     }
     
 	
-	public abstract void run (final CommandSender p0, final Command p1, final String p2, final String[] p3) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException, PlayerImmuneException;
+	public abstract void run (final CommandSender p0, final Command p1, final String p2, final String[] p3) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException, PlayerImmuneException, InvalidItemException, StrNotIntException;
 
 }
