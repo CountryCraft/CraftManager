@@ -59,6 +59,8 @@ public class SudoCommand extends CMD {
 				//}
 			}
 		}
+		
+		if (event != null) Bukkit.getPluginManager().callEvent(event);
 	}
 	
 	static {

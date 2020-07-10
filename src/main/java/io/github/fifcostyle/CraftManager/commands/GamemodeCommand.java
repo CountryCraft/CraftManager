@@ -159,6 +159,8 @@ public class GamemodeCommand extends CMD {
 			}
 			else throw new TmAException();
 		}
+		
+		if (event != null) Bukkit.getPluginManager().callEvent(event);
 	}
 	
 	static {
