@@ -7,6 +7,8 @@ import org.bukkit.inventory.PlayerInventory;
 
 import io.github.fifcostyle.CraftManager.events.ClearInvEvent;
 import io.github.fifcostyle.CraftManager.events.GetDebugEvent;
+import io.github.fifcostyle.CraftManager.events.GiveItemEvent;
+import io.github.fifcostyle.CraftManager.events.OpenInvEvent;
 import io.github.fifcostyle.CraftManager.events.SetDebugEvent;
 import io.github.fifcostyle.CraftManager.events.SetFlyEvent;
 import io.github.fifcostyle.CraftManager.events.SetFoodEvent;
@@ -101,6 +103,20 @@ public class Executor implements Listener {
 	public void SetGamemode(SetGamemodeEvent e) {
 		e.getTarget().setGameMode(e.getGM());
 		e.getTarget().sendMessage(craft.getMessager().format("gamemode.set.player", e.getGM().toString()));
+		//add broadcast
+	}
+	
+	@EventHandler
+	public void OpenInventory(OpenInvEvent e) {
+		e.getTarget().openInventory(e.getInv());
+		e.getTarget().sendMessage(craft.getMessager().format("openinventory.player", e.getInv().getName()));
+		//add broadcast
+	}
+	
+	@EventHandler
+	public void GiveItem(GiveItemEvent e) {
+		e.getTarget().getInventory().addItem(e.getItem());
+		e.getTarget().sendMessage(craft.getMessager().format("giveitem.player", e.getItem().getType().toString(), e.getItem().getAmount()));
 		//add broadcast
 	}
 	

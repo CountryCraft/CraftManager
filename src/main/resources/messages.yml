@@ -12,6 +12,9 @@ exception:
   noperm: '&4You do not have permission &b({0}) &4to run &6{1}'
   notplayer: '&4This command can be only executed by a player!'
   playernotonline: '&7{0} &4 is not online!'
+  playerimmune:
+  invaliditem:
+  strnotint:
   
 fly:
   player:
@@ -41,3 +44,9 @@ gamemode:
     player: '&6GAMEMODE&f -> &e{0}'
     broadcast: 
   get: '&6GAMEMODE&f -> &e{0}'
+openinventory:
+  player: '&6INVENTORY&f(&b{0}&f) -> &eOPEN'
+  broadcast:
+giveitem:
+  player: '&6INVENTORY&f + &e{0}&f(&b{1}&f)'
+  broadcast:
