@@ -18,6 +18,7 @@ public class SetGamemodeEvent extends Event implements Cancellable {
 	public SetGamemodeEvent(CommandSender sender, Player target, GameMode gm) {
 		this.isCancelled = false;
 		this.sender = sender;
+		this.target = target;
 		this.gm = gm;
 	}
 	

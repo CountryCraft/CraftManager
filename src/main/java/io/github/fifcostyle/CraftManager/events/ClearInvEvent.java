@@ -16,6 +16,7 @@ public class ClearInvEvent extends Event implements Cancellable {
 	public ClearInvEvent(CommandSender sender, Player target) {
 		this.isCancelled = false;
 		this.sender = sender;
+		this.target = target;
 	}
 	
 	public CommandSender getSender() {

@@ -17,6 +17,7 @@ public class SudoEvent extends Event implements Cancellable {
 	public SudoEvent(CommandSender sender, Player target, String command) {
 		this.isCancelled = false;
 		this.sender = sender;
+		this.target = target;
 		this.command = command;
 	}
 	
