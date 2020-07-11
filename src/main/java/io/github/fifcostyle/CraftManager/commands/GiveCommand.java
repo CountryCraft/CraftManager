@@ -13,7 +13,6 @@ import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
-import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.StrNotIntException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
@@ -34,7 +33,7 @@ public class GiveCommand extends CMD {
 	}
 	
 	@SuppressWarnings("deprecation")
-	public void run(CommandSender sender, Command cmd, String label, String[] args) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException, InvalidItemException, StrNotIntException
+	public void run(CommandSender sender, Command cmd, String label, String[] args) throws NeAException, TmAException, NoPermException, NotPlayerException, InvalidItemException, StrNotIntException
 	{
 		if (args.length == 0) throw new NeAException();
 		if (args.length == 1) {
@@ -71,14 +70,17 @@ public class GiveCommand extends CMD {
 				catch (IllegalArgumentException iae) {
 					target = Bukkit.getPlayer(args[0]);
 					if (target != null) {
-						try {
-							item = new ItemStack(Material.valueOf(args[0].toUpperCase()));
-							item.setAmount(64);
-							event = new GiveItemEvent(sender, target, item);
+						if (this.hasPermission(SUB[1])) {
+							try {
+								item = new ItemStack(Material.valueOf(args[0].toUpperCase()));
+								item.setAmount(64);
+								event = new GiveItemEvent(sender, target, item);
+							}
+							catch (IllegalArgumentException iaex) {
+								throw new InvalidItemException(args[1]);
+							}
 						}
-						catch (IllegalArgumentException iaex) {
-							throw new InvalidItemException(args[1]);
-						}
+						else throw new NoPermException();
 					}
 					else throw new InvalidItemException(args[0]);
 				}
@@ -86,8 +88,26 @@ public class GiveCommand extends CMD {
 			else throw new NoPermException();
 		}
 		else if (args.length == 3) {
-			
+			if (this.hasPermission(SUB[1])) {
+				target = Bukkit.getPlayer(args[0]);
+				if (target != null) {
+					try {
+						item = new ItemStack(Material.valueOf(args[1]));
+						item.setAmount(Integer.parseInt(args[2]));
+						event = new GiveItemEvent(sender, target, item);
+					}
+					catch (NumberFormatException nfe) {
+						throw new StrNotIntException(args[2]);
+					}
+					catch (IllegalArgumentException iae) {
+						throw new InvalidItemException(args[1]);
+					}
+				}
+				else throw new NotPlayerException();
+			}
+			else throw new NoPermException();
 		}
+		else if (args.length > 3) throw new TmAException();
 		
 		if (event != null) Bukkit.getPluginManager().callEvent(event);
 	}
