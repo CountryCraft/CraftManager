@@ -49,7 +49,7 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("gmsp").setExecutor(new CmdHandler(craft));
 		this.getCommand("vanish").setExecutor(new CmdHandler(craft));
 		this.getCommand("v").setExecutor(new CmdHandler(craft));
-		this.getCommand("clear").setExecutor(new CmdHandler(craft));
+		this.getCommand("clearinv").setExecutor(new CmdHandler(craft));
 		this.getCommand("ci").setExecutor(new CmdHandler(craft));
 		this.getCommand("give").setExecutor(new CmdHandler(craft));
 		this.getCommand("item").setExecutor(new CmdHandler(craft));
