@@ -1,8 +1,11 @@
 package io.github.fifcostyle.CraftManager;
 
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.PlayerInventory;
 
 import io.github.fifcostyle.CraftManager.events.ClearInvEvent;
@@ -17,12 +20,30 @@ import io.github.fifcostyle.CraftManager.events.SetHealthEvent;
 import io.github.fifcostyle.CraftManager.events.StaffChatEvent;
 import io.github.fifcostyle.CraftManager.events.SudoEvent;
 import io.github.fifcostyle.CraftManager.events.TeleportEvent;
+import io.github.fifcostyle.CraftManager.events.VanishEvent;
 
 public class Executor implements Listener {
 	CraftManager craft;
-	public Executor()
-	{
+	public Executor(CraftManager craft) {
+		this.craft = craft;
 		Bukkit.getPluginManager().registerEvents(this, craft);
+	}
+	
+	@EventHandler
+	public void onPlayerJoin(PlayerJoinEvent e) {
+		e.setJoinMessage("");
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			if (player.hasMetadata("vanished")) e.getPlayer().hidePlayer(craft, player);
+		}
+	}
+	
+	@EventHandler
+	public void onPlayerLeave(PlayerQuitEvent e) {
+		e.setQuitMessage("");
+		for (Player player : Bukkit.getOnlinePlayers()) {
+			if (!e.getPlayer().canSee(player)) e.getPlayer().showPlayer(craft, player);
+		}
+		if (e.getPlayer().hasMetadata("vanished")) Bukkit.getPluginManager().callEvent(new VanishEvent(e.getPlayer(), false));
 	}
 	
 	@EventHandler
@@ -118,6 +139,20 @@ public class Executor implements Listener {
 		e.getTarget().getInventory().addItem(e.getItem());
 		e.getTarget().sendMessage(craft.getMessager().format("giveitem.player", e.getItem().getType().toString(), e.getItem().getAmount()));
 		//add broadcast
+	}
+	
+	@EventHandler
+	public void Vanish(VanishEvent e) {
+		if (e.getState()) {
+			for (Player player : Bukkit.getOnlinePlayers()) {
+				if (!player.hasPermission("countrycraft.vanish.see")) player.hidePlayer(craft, e.getTarget());
+			}
+		}
+		else {
+			for (Player player : Bukkit.getOnlinePlayers()) {
+				if (!player.canSee(e.getTarget())) player.showPlayer(craft, e.getTarget());
+			}
+		}
 	}
 	
 	
