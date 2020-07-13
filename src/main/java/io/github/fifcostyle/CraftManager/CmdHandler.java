@@ -111,6 +111,7 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "i":
 			cmd = new GiveCommand(craft, sender);
+			break;
 		case "invsee":
 			cmd = new InvseeCommand(craft, sender);
 			break;
