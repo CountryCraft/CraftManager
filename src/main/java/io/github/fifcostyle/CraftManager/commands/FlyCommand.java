@@ -23,9 +23,9 @@ public class FlyCommand extends CMD {
 	CraftManager craft;
 	SetFlyEvent event;
 	
-	public FlyCommand(final CommandSender sender)
-	{
+	public FlyCommand(CraftManager craft, final CommandSender sender) {
 		super(sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	@SuppressWarnings("deprecation")
 	@Override

@@ -20,8 +20,9 @@ public class StaffChatCommand extends CMD {
 	CraftManager craft;
 	StaffChatEvent event;
 	
-	public StaffChatCommand(final CommandSender sender) {
+	public StaffChatCommand(CraftManager craft, final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	public void run(CommandSender sender, Command cmd, String label, String[] args) throws NeAException, NoPermException

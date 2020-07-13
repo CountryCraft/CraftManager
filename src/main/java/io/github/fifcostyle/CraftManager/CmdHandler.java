@@ -25,63 +25,68 @@ import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
 public class CmdHandler implements CommandExecutor {
 	CraftManager craft;
+	
+	public CmdHandler(CraftManager craft) {
+		this.craft = craft;
+	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		CMD cmd = null;
 		switch (command.getName().toLowerCase()) {
 		case "fly":
-			cmd = new FlyCommand(sender);
+			cmd = new FlyCommand(craft, sender);
 			break; 
 		case "debug":
-			cmd = new DebugCommand(sender);
+			cmd = new DebugCommand(craft, sender);
 			break;
 		case "feed":
-			cmd = new FeedCommand(sender);
+			cmd = new FeedCommand(craft, sender);
 			break;
 		case "heal":
-			cmd = new HealCommand(sender);
+			cmd = new HealCommand(craft, sender);
 			break;
 		case "kill":
-			cmd = new KillCommand(sender);
+			cmd = new KillCommand(craft, sender);
 			break;
 		case "staffchat":
-			cmd = new StaffChatCommand(sender);
+			cmd = new StaffChatCommand(craft, sender);
 			break;
 		case "sc":
-			cmd = new StaffChatCommand(sender);
+			cmd = new StaffChatCommand(craft, sender);
 			break;
 		case "lobby":
-			cmd = new LobbyCommand(sender);
+			cmd = new LobbyCommand(craft, sender);
 			break;
 		case "l":
-			cmd = new LobbyCommand(sender);
+			cmd = new LobbyCommand(craft, sender);
 			break;
 		case "hub":
-			cmd = new LobbyCommand(sender);
+			cmd = new LobbyCommand(craft, sender);
 			break;
 		case "h":
-			cmd = new LobbyCommand(sender);
+			cmd = new LobbyCommand(craft, sender);
 			break;
 		case "sudo":
-			cmd = new SudoCommand(sender);
+			cmd = new SudoCommand(craft, sender);
 			break;
 		case "gamemode":
-			cmd = new GamemodeCommand(sender);
+			cmd = new GamemodeCommand(craft, sender);
 			break;
 		case "gm":
-			cmd = new GamemodeCommand(sender);
+			cmd = new GamemodeCommand(craft, sender);
 			break;
 		case "gms":
-			cmd = new GamemodeCommand(sender);
+			cmd = new GamemodeCommand(craft, sender);
 			break;
 		case "gmc":
-			cmd = new GamemodeCommand(sender);
+			cmd = new GamemodeCommand(craft, sender);
 			break;
 		case "gma":
-			cmd = new GamemodeCommand(sender);
+			cmd = new GamemodeCommand(craft, sender);
 			break;
 		case "gmsp":
-			cmd = new GamemodeCommand(sender);
+			cmd = new GamemodeCommand(craft, sender);
 			break;
 		}
 		try {
@@ -111,6 +116,6 @@ public class CmdHandler implements CommandExecutor {
 		catch (StrNotIntException e) {
 			sender.sendMessage(craft.getMessager().format("exception.strnotint", e.getMessage()));
 		}
-		return false;
+		return true;
 	}
 }

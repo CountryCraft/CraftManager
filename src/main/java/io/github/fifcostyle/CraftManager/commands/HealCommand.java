@@ -25,8 +25,9 @@ public class HealCommand extends CMD {
 	SetHealthEvent event;
 	SetFoodEvent event2;
 	
-	public HealCommand(final CommandSender sender) {
+	public HealCommand(CraftManager craft, final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")

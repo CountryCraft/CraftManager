@@ -23,8 +23,9 @@ public class LobbyCommand extends CMD {
 	Player target;
 	TeleportEvent event;
 	
-	public LobbyCommand(final CommandSender sender) {
+	public LobbyCommand(CraftManager craft, final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")

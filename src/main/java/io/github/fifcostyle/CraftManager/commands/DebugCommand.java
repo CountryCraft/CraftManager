@@ -21,8 +21,9 @@ public class DebugCommand extends CMD {
 	SetDebugEvent event;
 	GetDebugEvent event2;
 	
-	public DebugCommand(final CommandSender sender) {
+	public DebugCommand(CraftManager craft, final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	public void run(CommandSender sender, Command cmd, String label, String[] args) throws TmAException, NoPermException

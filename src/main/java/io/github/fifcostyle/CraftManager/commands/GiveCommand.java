@@ -28,8 +28,9 @@ public class GiveCommand extends CMD {
 	ItemStack item;
 	GiveItemEvent event;
 	
-	public GiveCommand(final CommandSender sender) {
+	public GiveCommand(CraftManager craft, final CommandSender sender) {
 		super(sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")

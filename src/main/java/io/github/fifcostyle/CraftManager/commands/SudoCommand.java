@@ -24,8 +24,9 @@ public class SudoCommand extends CMD {
 	Player target;
 	SudoEvent event;
 	
-	public SudoCommand(final CommandSender sender) {
+	public SudoCommand(CraftManager craft, final CommandSender sender) {
 		super(sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")

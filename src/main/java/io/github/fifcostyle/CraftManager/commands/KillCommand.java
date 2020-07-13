@@ -23,9 +23,9 @@ public class KillCommand extends CMD {
 	SetHealthEvent event;
 	Player target;
 	
-	public KillCommand(final CommandSender sender)
-	{
+	public KillCommand(CraftManager craft, final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")
