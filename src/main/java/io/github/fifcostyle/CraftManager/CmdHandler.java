@@ -5,15 +5,19 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import io.github.fifcostyle.CraftManager.commands.CMD;
+import io.github.fifcostyle.CraftManager.commands.ClearInvCommand;
 import io.github.fifcostyle.CraftManager.commands.DebugCommand;
 import io.github.fifcostyle.CraftManager.commands.FeedCommand;
 import io.github.fifcostyle.CraftManager.commands.FlyCommand;
 import io.github.fifcostyle.CraftManager.commands.GamemodeCommand;
+import io.github.fifcostyle.CraftManager.commands.GiveCommand;
 import io.github.fifcostyle.CraftManager.commands.HealCommand;
+import io.github.fifcostyle.CraftManager.commands.InvseeCommand;
 import io.github.fifcostyle.CraftManager.commands.KillCommand;
 import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
 import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.commands.SudoCommand;
+import io.github.fifcostyle.CraftManager.commands.VanishCommand;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
@@ -87,6 +91,28 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "gmsp":
 			cmd = new GamemodeCommand(craft, sender);
+			break;
+		case "vanish":
+			cmd = new VanishCommand(craft, sender);
+			break;
+		case "v":
+			cmd = new VanishCommand(craft, sender);
+			break;
+		case "clearinv":
+			cmd = new ClearInvCommand(craft, sender);
+			break;
+		case "ci":
+			cmd = new ClearInvCommand(craft, sender);
+		case "give":
+			cmd = new GiveCommand(craft, sender);
+			break;
+		case "item":
+			cmd = new GiveCommand(craft, sender);
+			break;
+		case "i":
+			cmd = new GiveCommand(craft, sender);
+		case "invsee":
+			cmd = new InvseeCommand(craft, sender);
 			break;
 		}
 		try {
