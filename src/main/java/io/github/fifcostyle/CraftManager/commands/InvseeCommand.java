@@ -24,8 +24,9 @@ public class InvseeCommand extends CMD {
 	Player target;
 	OpenInvEvent event;
 	
-	public InvseeCommand(final CommandSender sender) {
+	public InvseeCommand(CraftManager craft, final CommandSender sender) {
 		super(sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")

@@ -23,8 +23,9 @@ public class ClearInvCommand extends CMD {
 	Player target;
 	ClearInvEvent event;
 	
-	public ClearInvCommand(final CommandSender sender) {
+	public ClearInvCommand(CraftManager craft, final CommandSender sender) {
 		super (sender, NAME, DESC, PERM, SUB, USAGE);
+		this.craft = craft;
 	}
 	
 	@SuppressWarnings("deprecation")
