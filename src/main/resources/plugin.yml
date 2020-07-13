@@ -1,3 +1,83 @@
 name: CraftManager
 main: io.github.fifcostyle.CraftManager.CraftManager
 version: 0.0.1
+author: FifcoStyle
+commands:
+    fly:
+      description: Toggles user's fly
+      usage: /fly [player] [on/off]
+    debug:
+      description: Toggles server-wide debug mode on or off
+      usage: /debug [on/off]
+    kill:
+      description: Kills target player or self
+      usage: /kill [player]
+    heal:
+      description: Heals target user
+      usage: /heal [player]
+    feed:
+      description: Feeds target player
+      usage: /feed [player]
+    staffchat:
+      description: Sends a staff-only message
+      usage: /staffchat {message}
+    sc:
+      description: Sends a staff-only message
+      usage: /sc {message}
+    lobby:
+      description: Teleports target to lobby
+      usage: /lobby [player]
+    l:
+      description: Teleports target to lobby
+      usage: /l [player]
+    hub:
+      description: Teleports target to lobby
+      usage: /hub [player]
+    h:
+      description: Teleports target to lobby
+      usage: /h [player]
+    sudo:
+      description: Runs a command as the target user
+      usage: /sudo {player} {command}
+    gamemode:
+      description: Changes target's gamemode
+      usage: /gamemode [player] {gamemode}
+    gm:
+      description: Changes target's gamemode
+      usage: /gm [player] {gamemode}
+    gms:
+      description: Changes target's gamemode to Survival
+      usage: /gms [player]
+    gmc:
+      description: Changes target's gamemode to Creative
+      usage: /gmc [player]
+    gma:
+      description: Changes target's gamemode to Adventure
+      usage: /gma [player]
+    gmsp:
+      description: Changes target's gamemode to Spectator
+      usage: /gmsp [player]
+    vanish:
+      description: Hides target player from others
+      usage: /vanish [player]
+    v:
+      description: Hides target player from others
+      usage: /v [player]
+    clearinv:
+      description: Clears target's inventory
+      usage: /clear [player]
+    ci:
+      description: Clears target's inventory
+      usage: /ci [player]
+    give:
+      description: Gives player target item
+      usage: /give [player] {item} [amount]
+    item:
+      description: Gives player target item
+      usage: /item [player] {item} [amount]
+    i:
+      description: Gives player target item
+      usage: /i [player] {item} [amount]
+    invsee:
+      description: See and interact with target player's inventory
+      usage: /invsee {player}
