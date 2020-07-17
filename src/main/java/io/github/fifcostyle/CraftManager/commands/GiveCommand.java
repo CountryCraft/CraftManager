@@ -73,7 +73,7 @@ public class GiveCommand extends CMD {
 					if (target != null) {
 						if (this.hasPermission(SUB[1])) {
 							try {
-								item = new ItemStack(Material.valueOf(args[0].toUpperCase()));
+								item = new ItemStack(Material.valueOf(args[1].toUpperCase()));
 								item.setAmount(64);
 								event = new GiveItemEvent(sender, target, item);
 							}
@@ -93,7 +93,7 @@ public class GiveCommand extends CMD {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
 					try {
-						item = new ItemStack(Material.valueOf(args[1]));
+						item = new ItemStack(Material.valueOf(args[1].toUpperCase()));
 						item.setAmount(Integer.parseInt(args[2]));
 						event = new GiveItemEvent(sender, target, item);
 					}
