@@ -9,5 +9,5 @@ lobby:
   x: 567.5
   y: 74
   z: 12.5
-  yaw: 0
-  pitch: 0
+  yaw: '0'
+  pitch: '0'
