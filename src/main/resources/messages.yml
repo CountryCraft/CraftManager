@@ -13,8 +13,8 @@ exception:
   notplayer: '&4This command can be only executed by a player!'
   playernotonline: '&7{0} &4 is not online!'
   playerimmune:
-  invaliditem:
-  strnotint:
+  invaliditem: '&6{0}&4 is not a valid item'
+  strnotint: '&6{0}&4 is not of type &bInteger'
   
 fly:
   player:
@@ -36,9 +36,12 @@ debugmode:
     broadcast:
   get: '&6DEBUG&f == &e{0}'
 teleport:
-  player: '&6LOCATION&f -> &e{0}'
+  player:
+    generic: '&6LOCATION&f -> &e{0}'
     lobby: '&6LOCATION&f -> &e{LOBBY}'
   broadcast:
+    broadcast:
+    lobby:
 gamemode:
   set:
     player: '&6GAMEMODE&f -> &e{0}'
