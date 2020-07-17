@@ -20,6 +20,7 @@ public class TeleportEvent extends Event implements Cancellable {
 	private boolean force;
 	private boolean override;
 	
+	//Player to player
 	public TeleportEvent(CommandSender sender, Player toTeleport, Player teleportTo, boolean force, boolean override) {
 		this.isCancelled = false;
 		this.sender = sender;
@@ -29,6 +30,7 @@ public class TeleportEvent extends Event implements Cancellable {
 		this.override = override;
 		this.mode = "PlayerToPlayer";
 	}
+	//Player to location
 	public TeleportEvent(CommandSender sender, Player toTeleport, Location tpLocation, boolean force, boolean override) {
 		this.isCancelled = false;
 		this.sender = sender;
@@ -38,6 +40,7 @@ public class TeleportEvent extends Event implements Cancellable {
 		this.override = override;
 		this.mode = "PlayerToLoc";
 	}
+	//Player to lobby
 	public TeleportEvent(boolean toLobby, CommandSender sender, Player toTeleport, String lobbyName) {
 		this.isCancelled = false;
 		this.sender = sender;
