@@ -4,80 +4,106 @@ version: 0.0.1
 author: FifcoStyle
 commands:
     fly:
+      permission:
       description: Toggles user's fly
       usage: /fly [player] [on/off]
     debug:
+      permission:
       description: Toggles server-wide debug mode on or off
       usage: /debug [on/off]
     kill:
+      permission:
       description: Kills target player or self
       usage: /kill [player]
     heal:
+      permission:
       description: Heals target user
       usage: /heal [player]
     feed:
+      permission:
       description: Feeds target player
       usage: /feed [player]
     staffchat:
+      permission:
       description: Sends a staff-only message
       usage: /staffchat {message}
     sc:
+      permission:
       description: Sends a staff-only message
       usage: /sc {message}
     lobby:
+      permission:
       description: Teleports target to lobby
       usage: /lobby [player]
     l:
+      permission:
       description: Teleports target to lobby
       usage: /l [player]
     hub:
+      permission:
       description: Teleports target to lobby
       usage: /hub [player]
     h:
+      permission:
       description: Teleports target to lobby
       usage: /h [player]
     sudo:
+      permission:
       description: Runs a command as the target user
       usage: /sudo {player} {command}
     gamemode:
+      permission:
       description: Changes target's gamemode
       usage: /gamemode [player] {gamemode}
     gm:
+      permission:
       description: Changes target's gamemode
       usage: /gm [player] {gamemode}
     gms:
+      permission:
       description: Changes target's gamemode to Survival
       usage: /gms [player]
     gmc:
+      permission:
       description: Changes target's gamemode to Creative
       usage: /gmc [player]
     gma:
+      permission:
       description: Changes target's gamemode to Adventure
       usage: /gma [player]
     gmsp:
+      permission:
       description: Changes target's gamemode to Spectator
       usage: /gmsp [player]
     vanish:
+      permission:
       description: Hides target player from others
       usage: /vanish [player]
     v:
+      permission:
       description: Hides target player from others
       usage: /v [player]
     clearinv:
+      permission:
       description: Clears target's inventory
       usage: /clear [player]
     ci:
+      permission:
       description: Clears target's inventory
       usage: /ci [player]
     give:
+      permission:
       description: Gives player target item
       usage: /give [player] {item} [amount]
     item:
+      permission:
       description: Gives player target item
       usage: /item [player] {item} [amount]
     i:
+      permission:
       description: Gives player target item
       usage: /i [player] {item} [amount]
     invsee:
+      permission:
       description: See and interact with target player's inventory
       usage: /invsee {player}
