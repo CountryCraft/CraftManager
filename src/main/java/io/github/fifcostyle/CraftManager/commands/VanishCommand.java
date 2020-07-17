@@ -35,6 +35,7 @@ public class VanishCommand extends CMD {
 		if (args.length == 0) {
 			if (this.hasPermission(SUB[0])) {
 				if (this.isPlayer()) {
+					target = (Player) sender;
 					if (target.hasMetadata("vanished")) event = new VanishEvent(sender, target, false);
 					else event = new VanishEvent(sender, target, true);
 				}
