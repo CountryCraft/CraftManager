@@ -53,3 +53,6 @@ openinventory:
 giveitem:
   player: '&6INVENTORY&f + &e{0}&f(&b{1}&f)'
   broadcast:
+clearinv:
+  player: '&6INVENTORY&f -> &eEMPTY'
+  broadcast:
