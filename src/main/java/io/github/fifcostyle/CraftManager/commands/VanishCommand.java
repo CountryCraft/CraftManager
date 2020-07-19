@@ -55,6 +55,8 @@ public class VanishCommand extends CMD {
 			else throw new NoPermException();
 		}
 		else if (args.length > 1) throw new TmAException();
+		
+		if (event != null) Bukkit.getPluginManager().callEvent(event);
 	}
 	
 	static {
