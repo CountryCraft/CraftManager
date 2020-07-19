@@ -17,7 +17,7 @@ public class ClearInvCommand extends CMD {
 	public static final String NAME = "Clear inventory";
 	public static final String DESC = "Clears target's inventory";
 	public static final String PERM = "countrycraft.debug";
-	public static final String USAGE = "/clear [player] | /ci [player]";
+	public static final String USAGE = "/clearinv [player] | /ci [player]";
 	public static final String[] SUB;
 	CraftManager craft;
 	Player target;
