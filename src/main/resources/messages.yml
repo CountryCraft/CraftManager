@@ -56,3 +56,6 @@ giveitem:
 clearinv:
   player: '&6INVENTORY&f -> &eEMPTY'
   broadcast:
+vanish:
+  player: '&6VANISH&f -> &e{0}'
+  broadcast: 

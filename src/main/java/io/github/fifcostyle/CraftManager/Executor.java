@@ -175,6 +175,7 @@ public class Executor implements Listener {
 			craft.getVanishedPlayers().remove(e.getTarget());
 			craft.getOnlinePlayers().add(e.getTarget());
 		}
+		e.getTarget().sendMessage(craft.getMessager().format("vanish.player", "TRUE"));
 	}
 	
 	
