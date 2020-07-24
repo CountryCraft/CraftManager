@@ -13,18 +13,15 @@ public class Messager {
 		this.config = null;
 		this.config = (FileConfiguration)YamlConfiguration.loadConfiguration((Reader)new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("messages.yml")));
 	}
-	public String get(final String key)
-	{
+	public String get(final String key) {
 		return this.config.getString(key);
 	}
 	
-	public String format(final String key, final Object... args)
-	{
+	public String format(final String key, final Object... args) {
 		return this.format(true, key, args);
 	}
 	
-	public String format(final boolean prefix, final String key, final Object... args)
-	{
+	public String format(final boolean prefix, final String key, final Object... args) {
 		String message = prefix ? (this.get("prefix") + this.get(key)) : this.get(key);
 		for (int i = 0; i < args.length; ++i) {
 			message = message.replace("{" + i + "}", String.valueOf(args[i]));
@@ -32,8 +29,7 @@ public class Messager {
 		return ChatColor.translateAlternateColorCodes('&', message);
 	}
 	
-	public String prefix(final String msg)
-	{
+	public String prefix(final String msg) {
 		return ChatColor.translateAlternateColorCodes('&', this.get("prefix") + msg);
 	}
 }
