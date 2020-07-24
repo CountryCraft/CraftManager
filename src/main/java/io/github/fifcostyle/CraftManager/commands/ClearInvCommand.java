@@ -31,28 +31,20 @@ public class ClearInvCommand extends CMD {
 	@SuppressWarnings("deprecation")
 	public void run(CommandSender sender, Command cmd, String label, String[] args) throws TmAException, NoPermException, NotPlayerException, PNOException
 	{
-		if (args.length == 0)
-		{
-			if (this.hasPermission(SUB[0]))
-			{
-				if (this.isPlayer())
-				{
+		if (args.length == 0) {
+			if (this.hasPermission(SUB[0])) {
+				if (this.isPlayer()) {
 					target = (Player) sender;
 					event = new ClearInvEvent(sender, target);
-				}
-				else throw new NotPlayerException();
-			}
-			else throw new NoPermException();
+				} else throw new NotPlayerException();
+			} else throw new NoPermException();
 		}
-		else if (args.length == 1)
-		{
-			if (this.hasPermission(SUB[1]))
-			{
+		else if (args.length == 1) {
+			if (this.hasPermission(SUB[1])) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) event = new ClearInvEvent(sender, target);
 				else throw new PNOException(args[0]);
-			}
-			else throw new NoPermException();
+			} else throw new NoPermException();
 		}
 		else if (args.length > 1) throw new TmAException();
 		
