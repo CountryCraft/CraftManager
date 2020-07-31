@@ -14,7 +14,7 @@ import io.github.fifcostyle.CraftManager.exceptions.TmAException;
 
 public class GetMetadataCommand extends CMD {
 	
-	public static final String NAME = "Get Metadata";
+	public static final String NAME = "GetMetadata";
 	public static final String DESC = "Gets target Metadata values";
 	public static final String PERM = "countrycraft.util.getmetadata";
 	public static final String USAGE = "/getmetadata {player} {metadatakey}";
