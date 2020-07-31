@@ -59,3 +59,4 @@ clearinv:
 vanish:
   player: '&6VANISH&f -> &e{0}'
   broadcast: 
+getmetadata: '&7{0}&f has the following metadata matching "&b{1}&f": &e{2}'

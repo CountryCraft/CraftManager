@@ -107,3 +107,7 @@ commands:
       permission:
       description: See and interact with target player's inventory
       usage: /invsee {player}
+    getmetadata:
+      permission:
+      description: Get target's metadata
+      usage: /getmetadata {player} {key}

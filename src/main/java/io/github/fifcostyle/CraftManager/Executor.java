@@ -7,9 +7,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.PlayerInventory;
-
 import io.github.fifcostyle.CraftManager.events.ClearInvEvent;
 import io.github.fifcostyle.CraftManager.events.GetDebugEvent;
+import io.github.fifcostyle.CraftManager.events.GetMetadataEvent;
 import io.github.fifcostyle.CraftManager.events.GiveItemEvent;
 import io.github.fifcostyle.CraftManager.events.OpenInvEvent;
 import io.github.fifcostyle.CraftManager.events.SetDebugEvent;
@@ -21,6 +21,7 @@ import io.github.fifcostyle.CraftManager.events.StaffChatEvent;
 import io.github.fifcostyle.CraftManager.events.SudoEvent;
 import io.github.fifcostyle.CraftManager.events.TeleportEvent;
 import io.github.fifcostyle.CraftManager.events.VanishEvent;
+import io.github.fifcostyle.CraftManager.util.MetadataUtils;
 
 public class Executor implements Listener {
 	CraftManager craft;
@@ -33,7 +34,7 @@ public class Executor implements Listener {
 		if (craft.getDebugMode()) craft.getLogger().info("Caught 'PlayerJoinEvent'");
 		e.setJoinMessage("");
 		for (Player player : Bukkit.getOnlinePlayers()) {
-			if (player.hasMetadata("vanished")) e.getPlayer().hidePlayer(craft, player);
+			if (player.hasMetadata("vanished") && !e.getPlayer().hasPermission("countrycraft.vanish.see")) e.getPlayer().hidePlayer(craft, player);
 		}
 		craft.getOnlinePlayers().add(e.getPlayer());
 	}
@@ -167,6 +168,7 @@ public class Executor implements Listener {
 			}
 			craft.getOnlinePlayers().remove(e.getTarget());
 			craft.getVanishedPlayers().add(e.getTarget());
+			MetadataUtils.set(e.getTarget(), "vanished", true);
 		}
 		else {
 			for (Player player : Bukkit.getOnlinePlayers()) {
@@ -174,8 +176,14 @@ public class Executor implements Listener {
 			}
 			craft.getVanishedPlayers().remove(e.getTarget());
 			craft.getOnlinePlayers().add(e.getTarget());
+			MetadataUtils.rem(e.getTarget(), "vanished");
 		}
-		e.getTarget().sendMessage(craft.getMessager().format("vanish.player", "TRUE"));
+		e.getTarget().sendMessage(craft.getMessager().format("vanish.player", e.getState()));
+	}
+	
+	@EventHandler
+	public void GetMetadata(GetMetadataEvent e) {
+		e.getSender().sendMessage(craft.getMessager().format("getmetadata", e.getTarget().getName(), e.getKey(), MetadataUtils.get(e.getTarget(), e.getKey()).toString()));
 	}
 	
 	

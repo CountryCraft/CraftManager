@@ -118,6 +118,7 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("item").setExecutor(new CmdHandler(craft));
 		this.getCommand("i").setExecutor(new CmdHandler(craft));
 		this.getCommand("invsee").setExecutor(new CmdHandler(craft));
+		this.getCommand("getmetadata").setExecutor(new CmdHandler(craft));
 	}
 	
 	@EventHandler

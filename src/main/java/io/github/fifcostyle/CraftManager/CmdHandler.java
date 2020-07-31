@@ -10,6 +10,7 @@ import io.github.fifcostyle.CraftManager.commands.DebugCommand;
 import io.github.fifcostyle.CraftManager.commands.FeedCommand;
 import io.github.fifcostyle.CraftManager.commands.FlyCommand;
 import io.github.fifcostyle.CraftManager.commands.GamemodeCommand;
+import io.github.fifcostyle.CraftManager.commands.GetMetadataCommand;
 import io.github.fifcostyle.CraftManager.commands.GiveCommand;
 import io.github.fifcostyle.CraftManager.commands.HealCommand;
 import io.github.fifcostyle.CraftManager.commands.InvseeCommand;
@@ -115,6 +116,9 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "invsee":
 			cmd = new InvseeCommand(craft, sender);
+			break;
+		case "getmetadata":
+			cmd = new GetMetadataCommand(craft, sender);
 			break;
 		}
 		try {
