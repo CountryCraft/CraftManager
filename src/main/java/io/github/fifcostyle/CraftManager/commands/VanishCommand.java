@@ -11,6 +11,7 @@ import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
+import io.github.fifcostyle.CraftManager.util.MetadataUtils;
 
 public class VanishCommand extends CMD {
 	
@@ -23,6 +24,8 @@ public class VanishCommand extends CMD {
 	Player target;
 	boolean state;
 	VanishEvent event;
+	MetadataUtils mtdutil;
+	String key = "vanished";
 	
 	public VanishCommand(CraftManager craft, final CommandSender sender) {
 		super(sender, NAME, DESC, PERM, SUB, USAGE);
@@ -36,7 +39,7 @@ public class VanishCommand extends CMD {
 			if (this.hasPermission(SUB[0])) {
 				if (this.isPlayer()) {
 					target = (Player) sender;
-					if (target.hasMetadata("vanished")) event = new VanishEvent(sender, target, false);
+					if (MetadataUtils.has(target, key)) event = new VanishEvent(sender, target, false);
 					else event = new VanishEvent(sender, target, true);
 				}
 				else throw new NotPlayerException();
@@ -47,7 +50,7 @@ public class VanishCommand extends CMD {
 			if (this.hasPermission(SUB[1])) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
-					if (target.hasMetadata("vanished")) event = new VanishEvent(sender, target, false);
+					if (MetadataUtils.has(target, key)) event = new VanishEvent(sender, target, false);
 					else event = new VanishEvent(sender, target, true);
 				}
 				else throw new PNOException(args[0]);
