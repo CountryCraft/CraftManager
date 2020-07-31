@@ -15,7 +15,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CraftManager extends JavaPlugin implements Listener {
-	private static CraftManager craft;
+	public static CraftManager craft;
 	private Logger lgr = Bukkit.getLogger();
 	private PluginManager pmgr = Bukkit.getPluginManager();
 	private Messager messager;
