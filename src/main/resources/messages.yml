@@ -4,17 +4,19 @@
 # Be aware that some values here may change with upcoming updates
 ### Do not forget to wrap each message in '' quotes
 
-prefix: '&9[CountryCraft]&r '
+prefixInfo: '&9[CountryCraft]&r '
+prefixWarn: '&9[CountryCraft&f-&c&oWARN&9]&r '
+prefixSevere: '&9[CountryCraft&f-&4&lERR&9]&r '
 
 exception:
   nea: '&4Not enough arguments!'
   tma: '&4Too many arguments!'
   noperm: '&4You do not have permission &b({0}) &4to run &6{1}'
-  notplayer: '&4This command can be only executed by a player!'
-  playernotonline: '&7{0} &4 is not online!'
-  playerimmune:
+  notplayer: '&4This (sub)command can be only executed by a player!'
+  playernotonline: '&7{0}&4 is not online!'
+  playerimmune: '&7{0}&4 is immune!'
   invaliditem: '&6{0}&4 is not a valid item'
-  strnotint: '&6{0}&4 is not of type &bInteger'
+  strnotint: '&6{0}&4 is not of type &bInteger (number)'
   
 fly:
   player:
@@ -35,6 +37,7 @@ debugmode:
     player: '&6DEBUG&f -> &e{0}'
     broadcast:
   get: '&6DEBUG&f == &e{0}'
+  wrongstate: '&6DEBUG&4 must be &e{0}&4 to run this command'
 teleport:
   player:
     generic: '&6LOCATION&f -> &e{0}'
@@ -42,6 +45,7 @@ teleport:
   broadcast:
     broadcast:
     lobby:
+  unsafe: '&4The location you are trying to teleport may be unsafe, to teleport anyway, please add the -o flag to your command'
 gamemode:
   set:
     player: '&6GAMEMODE&f -> &e{0}'
@@ -59,4 +63,9 @@ clearinv:
 vanish:
   player: '&6VANISH&f -> &e{0}'
   broadcast: 
-getmetadata: '&7{0}&f has the following metadata matching "&b{1}&f": &e{2}'
+metadata: 
+  get: '&7{0}&f has the following metadata matching "&b{1}&f": &e{2}'
+  dangerous: 'This command can be potentially dangerous and should only be run for debugging purposes! The command will be aborted in 10 seconds. To proceed, please run this command again'
+  expired: 'The command has expired'
+  set: 'Set &e{2}&f at &6{1}&f to &7{0}'
+  rem: 'Removed &e{1}&f from &7{0}'
