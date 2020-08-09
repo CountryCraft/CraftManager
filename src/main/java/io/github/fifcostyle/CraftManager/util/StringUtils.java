@@ -2,10 +2,6 @@ package io.github.fifcostyle.CraftManager.util;
 
 public class StringUtils {
 	
-	public StringUtils() {
-		
-	}
-	
 	public static String stringArrayToString(final String[] args, final int start)
 	{
 		final StringBuilder bldr = new StringBuilder();
