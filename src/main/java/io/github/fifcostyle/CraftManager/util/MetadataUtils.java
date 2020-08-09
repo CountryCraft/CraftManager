@@ -10,12 +10,6 @@ import io.github.fifcostyle.CraftManager.CraftManager;
 
 public class MetadataUtils {
 	
-	private static CraftManager craft;
-	
-	public MetadataUtils(CraftManager craft) {
-		MetadataUtils.craft = craft;
-	}
-	
 	public static List<MetadataValue> get(Player target, String key) {
 		return target.getMetadata(key);
 	}
@@ -24,11 +18,11 @@ public class MetadataUtils {
 		return target.hasMetadata(key);
 	}
 	
-	public static void set(Player target, String key, Object val)  {
-		target.setMetadata(key, new FixedMetadataValue(craft, val));
+	public static void set(Player target, String key, Object val) {
+		target.setMetadata(key, new FixedMetadataValue(CraftManager.craft, val));
 	}
 	
 	public static void rem(Player target, String key) {
-		target.removeMetadata(key, craft);
+		target.removeMetadata(key, CraftManager.craft);
 	}
 }
