@@ -3,7 +3,8 @@
 #####################
 #
 
-#Location.toString() of the main lobby to be used with /lobby
+# Location.toString() of the main lobby to be used with /lobby
+# NOTE: Yaw and Pitch must be written as strings, not as integers
 lobby:
   world: world
   x: 567.5
@@ -11,3 +12,4 @@ lobby:
   z: 12.5
   yaw: '0'
   pitch: '0'
+debug: false
