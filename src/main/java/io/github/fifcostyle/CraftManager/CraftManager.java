@@ -33,10 +33,11 @@ public class CraftManager extends JavaPlugin implements Listener {
 		messager = new Messager();
 		executor = new Executor(craft);
 		craft = this;
-		debugMode = false;
+		debugMode = getConfig().getBoolean("debug", false);
 		LobbyInit();
 		SetCmdExecutors();
 		pmgr.registerEvents(new Executor(craft), this);
+		pmgr.registerEvents(this, this);
 		lgr.info("CraftManager has been enabled!");
 	}
 	
@@ -119,6 +120,10 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("i").setExecutor(new CmdHandler(craft));
 		this.getCommand("invsee").setExecutor(new CmdHandler(craft));
 		this.getCommand("getmetadata").setExecutor(new CmdHandler(craft));
+		this.getCommand("setmetadata").setExecutor(new CmdHandler(craft));
+		this.getCommand("teleport").setExecutor(new CmdHandler(craft));
+		this.getCommand("tp").setExecutor(new CmdHandler(craft));
+		this.getCommand("cctp").setExecutor(new CmdHandler(craft));
 	}
 	
 	@EventHandler
