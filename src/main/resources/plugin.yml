@@ -111,3 +111,19 @@ commands:
       permission:
       description: Get target's metadata
       usage: /getmetadata {player} {key}
+    setmetadata:
+      permission:
+      description: Set target's metadata
+      usage: /setmetadata {player} {key} {(String) metadatavalue}
+    teleport:
+      permission:
+      description: Teleports to a player, location or a world
+      usage: /teleport
+    tp:
+      permission:
+      description: Teleports to a player, location or a world
+      usage: /tp
+    cctp:
+      permission:
+      description: Teleports to a player, location or a world
+      usage: /cctp

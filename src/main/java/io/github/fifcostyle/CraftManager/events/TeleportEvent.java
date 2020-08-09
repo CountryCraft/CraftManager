@@ -1,6 +1,7 @@
 package io.github.fifcostyle.CraftManager.events;
 
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
@@ -17,6 +18,7 @@ public class TeleportEvent extends Event implements Cancellable {
 	private Location tpLocation;
 	private String lobbyName;
 	private String mode;
+	private boolean isUnsafe;
 	private boolean force;
 	private boolean override;
 	
@@ -29,6 +31,7 @@ public class TeleportEvent extends Event implements Cancellable {
 		this.force = force;
 		this.override = override;
 		this.mode = "PlayerToPlayer";
+		this.isUnsafe = checkUnsafe(teleportTo.getLocation());
 	}
 	//Player to location
 	public TeleportEvent(CommandSender sender, Player toTeleport, Location tpLocation, boolean force, boolean override) {
@@ -39,6 +42,7 @@ public class TeleportEvent extends Event implements Cancellable {
 		this.force = force;
 		this.override = override;
 		this.mode = "PlayerToLoc";
+		this.isUnsafe = checkUnsafe(tpLocation);
 	}
 	//Player to lobby
 	public TeleportEvent(boolean toLobby, CommandSender sender, Player toTeleport, String lobbyName) {
@@ -47,8 +51,13 @@ public class TeleportEvent extends Event implements Cancellable {
 		this.toTeleport = toTeleport;
 		this.lobbyName = lobbyName;
 		this.mode = "PlayerToLobby";
+		this.isUnsafe = false;
 	}
 	
+	private boolean checkUnsafe(Location loc) {
+		if (loc.getBlock().getType() == Material.AIR) return false;
+		else return true;
+	}
 	public CommandSender getSender() {
 		return this.sender;
 	}
@@ -63,6 +72,9 @@ public class TeleportEvent extends Event implements Cancellable {
 	}
 	public String getMode() {
 		return this.mode;
+	}
+	public boolean isUnsafe() {
+		return this.isUnsafe;
 	}
 	public boolean getForce() {
 		return this.force;

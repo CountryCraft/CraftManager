@@ -1,5 +1,7 @@
 package io.github.fifcostyle.CraftManager;
 
+import java.util.logging.Level;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,13 +18,17 @@ import io.github.fifcostyle.CraftManager.commands.HealCommand;
 import io.github.fifcostyle.CraftManager.commands.InvseeCommand;
 import io.github.fifcostyle.CraftManager.commands.KillCommand;
 import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
+import io.github.fifcostyle.CraftManager.commands.SetMetadataCommand;
 import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.commands.SudoCommand;
+import io.github.fifcostyle.CraftManager.commands.TeleportCommand;
 import io.github.fifcostyle.CraftManager.commands.VanishCommand;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
+import io.github.fifcostyle.CraftManager.exceptions.InvalidModifierException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
+import io.github.fifcostyle.CraftManager.exceptions.NullWorldException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
 import io.github.fifcostyle.CraftManager.exceptions.StrNotIntException;
@@ -120,33 +126,58 @@ public class CmdHandler implements CommandExecutor {
 		case "getmetadata":
 			cmd = new GetMetadataCommand(craft, sender);
 			break;
+		case "setmetadata":
+			cmd = new SetMetadataCommand(craft, sender);
+			break;
+		case "teleport":
+			cmd = new TeleportCommand(craft, sender);
+			break;
+		case "tp":
+			cmd = new TeleportCommand(craft, sender);
+			break;
+		case "cctp":
+			cmd = new TeleportCommand(craft, sender);
+			break;
 		}
 		try {
 			cmd.run(sender, command, label, args);
 		}
 		catch (TmAException e) {
-			sender.sendMessage(craft.getMessager().format("exception.tma"));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.tma"));
+			cmd.sendUsage();
 		}
 		catch (NeAException e) {
-			sender.sendMessage(craft.getMessager().format("exception.nea"));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.nea"));
+			cmd.sendUsage();
 		}
 		catch (NoPermException e) {
-			sender.sendMessage(craft.getMessager().format("exception.noperm", cmd.getPermission(), cmd.getName()));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.noperm", cmd.getPermission(), cmd.getName()));
 		}
 		catch (NotPlayerException e) {
-			sender.sendMessage(craft.getMessager().format("exception.notplayer"));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.notplayer"));
 		}
 		catch (PNOException e) {
-			sender.sendMessage(craft.getMessager().format("exception.playernotonline", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.playernotonline", e.getMessage()));
+			cmd.sendUsage();
 		}
 		catch (PlayerImmuneException e) {
-			sender.sendMessage(craft.getMessager().format("exception.playerimmune", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.playerimmune", e.getMessage()));
 		}
 		catch (InvalidItemException e) {
-			sender.sendMessage(craft.getMessager().format("exception.invaliditem", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invaliditem", e.getMessage()));
+			cmd.sendUsage();
 		}
 		catch (StrNotIntException e) {
-			sender.sendMessage(craft.getMessager().format("exception.strnotint", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.strnotint", e.getMessage()));
+			cmd.sendUsage();
+		}
+		catch (InvalidModifierException e) {
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invalidmodifier", e.getMessage()));
+			cmd.sendUsage();
+		}
+		catch (NullWorldException e) {
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.nullworld", e.getMessage()));
+			cmd.sendUsage();
 		}
 		return true;
 	}
