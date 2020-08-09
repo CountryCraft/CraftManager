@@ -37,7 +37,7 @@ public class HealCommand extends CMD {
 		{
 			if (this.isPlayer())
 			{
-				if (this.hasPermission(SUB[0]))
+				if (this.hasPerm(SUB[0]))
 				{
 					target = (Player) sender;
 					event = new SetHealthEvent(sender, target, 20.0); event2 = new SetFoodEvent(sender, target, 20);
@@ -48,7 +48,7 @@ public class HealCommand extends CMD {
 		}
 		else if (args.length == 1)
 		{
-			if (this.hasPermission(SUB[1]))
+			if (this.hasPerm(SUB[1]))
 			{
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null)

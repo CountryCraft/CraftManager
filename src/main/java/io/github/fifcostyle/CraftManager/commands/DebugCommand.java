@@ -29,13 +29,13 @@ public class DebugCommand extends CMD {
 	public void run(CommandSender sender, Command cmd, String label, String[] args) throws TmAException, NoPermException
 	{
 		if (args.length == 0) {
-			if (this.hasPermission(SUB[0])) {
+			if (this.hasPerm(SUB[0])) {
 				event2 = new GetDebugEvent(sender);
 			} else throw new NoPermException();
 		}
 		else if (args.length == 1) {
-			if (this.hasPermission(SUB[0])) {
-				if (args[0].equalsIgnoreCase("on")) event = new SetDebugEvent(sender, true);
+			if (this.hasPerm(SUB[0])) {
+				if (args[0].equalsIgnoreCase("true") || args[0].equalsIgnoreCase("on")) event = new SetDebugEvent(sender, true);
 				else event = new SetDebugEvent(sender, false);
 			} else throw new NoPermException();
 		}

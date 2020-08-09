@@ -33,7 +33,7 @@ public class KillCommand extends CMD {
 	{
 		if (args.length == 0)
 		{
-			if (this.hasPermission(SUB[0]))
+			if (this.hasPerm(SUB[0]))
 			{
 				if (this.isPlayer())
 				{
@@ -46,7 +46,7 @@ public class KillCommand extends CMD {
 		}
 		else if (args.length == 1)
 		{
-			if (this.hasPermission(SUB[1]))
+			if (this.hasPerm(SUB[1]))
 			{
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null)

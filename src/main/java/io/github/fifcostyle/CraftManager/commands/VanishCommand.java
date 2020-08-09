@@ -36,7 +36,7 @@ public class VanishCommand extends CMD {
 	public void run(CommandSender sender, Command cmd, String label, String[] args) throws TmAException, NoPermException, NotPlayerException, PNOException
 	{
 		if (args.length == 0) {
-			if (this.hasPermission(SUB[0])) {
+			if (this.hasPerm(SUB[0])) {
 				if (this.isPlayer()) {
 					target = (Player) sender;
 					if (MetadataUtils.has(target, key)) event = new VanishEvent(sender, target, false);
@@ -47,7 +47,7 @@ public class VanishCommand extends CMD {
 			else throw new NoPermException();
 		}
 		else if (args.length == 1) {
-			if (this.hasPermission(SUB[1])) {
+			if (this.hasPerm(SUB[1])) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
 					if (MetadataUtils.has(target, key)) event = new VanishEvent(sender, target, false);

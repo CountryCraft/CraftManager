@@ -33,7 +33,7 @@ public class GetMetadataCommand extends CMD {
 	{
 		if (args.length < 2) throw new NeAException();
 		else if (args.length == 2) {
-			if (this.hasPermission()) {
+			if (this.hasPerm()) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) event = new GetMetadataEvent(sender, target, args[1]);
 				else throw new PNOException(args[0]);

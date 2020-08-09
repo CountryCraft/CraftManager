@@ -30,7 +30,7 @@ public class StaffChatCommand extends CMD {
 		if (args.length == 0) throw new NeAException();
 		else if (args.length > 0) 
 		{
-			if (this.hasPermission(SUB[0]))
+			if (this.hasPerm(SUB[0]))
 			{
 				final String[] arguments = new String[args.length];
 				if (arguments.length > 0)

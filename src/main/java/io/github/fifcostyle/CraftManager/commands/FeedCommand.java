@@ -33,14 +33,14 @@ public class FeedCommand extends CMD {
 	{
 		if (args.length == 0) {
 			if (this.isPlayer()) {
-				if (this.hasPermission(SUB[0])) {
+				if (this.hasPerm(SUB[0])) {
 					target = (Player) sender;
 					event = new SetFoodEvent(sender, target, 20);
 				} else throw new NoPermException();
 			} else throw new NotPlayerException();
 		}
 		else if (args.length == 1) {
-			if (this.hasPermission(SUB[1])) {
+			if (this.hasPerm(SUB[1])) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) event = new SetFoodEvent(sender, target, 20);
 				else throw new PNOException(args[0]);

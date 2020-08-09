@@ -40,19 +40,19 @@ public class GamemodeCommand extends CMD {
 				if (this.isPlayer()) {
 					target = (Player) sender;
 					if (args[0].equalsIgnoreCase("survival") || args[0].equalsIgnoreCase("s") || args[0].equalsIgnoreCase("0")) {
-						if (this.hasPermission(SUB[0])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
+						if (this.hasPerm(SUB[0])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
 						else throw new NoPermException();
 					}
 					else if (args[0].equalsIgnoreCase("creative") || args[0].equalsIgnoreCase("c") || args[0].equalsIgnoreCase("1")) {
-						if (this.hasPermission(SUB[1])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
+						if (this.hasPerm(SUB[1])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
 						else throw new NoPermException();
 					}
 					else if (args[0].equalsIgnoreCase("adventure") || args[0].equalsIgnoreCase("a") || args[0].equalsIgnoreCase("2")) {
-						if (this.hasPermission(SUB[2])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
+						if (this.hasPerm(SUB[2])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
 						else throw new NoPermException();
 					}
 					else if (args[0].equalsIgnoreCase("spectator") || args[0].equalsIgnoreCase("sp") || args[0].equalsIgnoreCase("3")) {
-						if (this.hasPermission(SUB[3])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
+						if (this.hasPerm(SUB[3])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
 						else throw new NoPermException();
 					}
 					else sender.sendMessage(craft.getMessager().prefix(args[0] + "is not a valid gamemode"));
@@ -63,19 +63,19 @@ public class GamemodeCommand extends CMD {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
 					if (args[1].equalsIgnoreCase("survival") || args[1].equalsIgnoreCase("s") || args[1].equalsIgnoreCase("0")) {
-						if (this.hasPermission(SUB[4])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
+						if (this.hasPerm(SUB[4])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
 						else throw new NoPermException();
 					}
 					else if (args[1].equalsIgnoreCase("creative") || args[1].equalsIgnoreCase("c") || args[1].equalsIgnoreCase("1")) {
-						if (this.hasPermission(SUB[5])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
+						if (this.hasPerm(SUB[5])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
 						else throw new NoPermException();
 					}
 					else if (args[1].equalsIgnoreCase("adventure") || args[1].equalsIgnoreCase("a") || args[1].equalsIgnoreCase("2")) {
-						if (this.hasPermission(SUB[6])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
+						if (this.hasPerm(SUB[6])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
 						else throw new NoPermException();
 					}
 					else if (args[1].equalsIgnoreCase("spectator") || args[1].equalsIgnoreCase("sp") || args[1].equalsIgnoreCase("3")) {
-						if (this.hasPermission(SUB[7])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
+						if (this.hasPerm(SUB[7])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
 						else throw new NoPermException();
 					}
 					else sender.sendMessage(craft.getMessager().prefix(args[0] + "is not a valid gamemode"));
@@ -88,7 +88,7 @@ public class GamemodeCommand extends CMD {
 			if (args.length == 0) {
 				if (this.isPlayer()) {
 					target = (Player) sender;
-					if (this.hasPermission(SUB[0])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
+					if (this.hasPerm(SUB[0])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
 					else throw new NoPermException();
 				}
 				else throw new NotPlayerException();
@@ -96,7 +96,7 @@ public class GamemodeCommand extends CMD {
 			else if (args.length == 1) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
-					if (this.hasPermission(SUB[3])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
+					if (this.hasPerm(SUB[3])) event = new SetGamemodeEvent(sender, target, GameMode.SURVIVAL);
 					else throw new NoPermException();
 				}
 				else throw new PNOException(args[0]);
@@ -107,7 +107,7 @@ public class GamemodeCommand extends CMD {
 			if (args.length == 0) {
 				if (this.isPlayer()) {
 					target = (Player) sender;
-					if (this.hasPermission(SUB[1])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
+					if (this.hasPerm(SUB[1])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
 					else throw new NoPermException();
 				}
 				else throw new NotPlayerException();
@@ -115,7 +115,7 @@ public class GamemodeCommand extends CMD {
 			else if (args.length == 1) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
-					if (this.hasPermission(SUB[4])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
+					if (this.hasPerm(SUB[4])) event = new SetGamemodeEvent(sender, target, GameMode.CREATIVE);
 					else throw new NoPermException();
 				}
 				else throw new PNOException(args[0]);
@@ -126,7 +126,7 @@ public class GamemodeCommand extends CMD {
 			if (args.length == 0) {
 				if (this.isPlayer()) {
 					target = (Player) sender;
-					if (this.hasPermission(SUB[2])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
+					if (this.hasPerm(SUB[2])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
 					else throw new NoPermException();
 				}
 				else throw new NotPlayerException();
@@ -134,7 +134,7 @@ public class GamemodeCommand extends CMD {
 			else if (args.length == 1) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
-					if (this.hasPermission(SUB[5])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
+					if (this.hasPerm(SUB[5])) event = new SetGamemodeEvent(sender, target, GameMode.ADVENTURE);
 					else throw new NoPermException();
 				}
 				else throw new PNOException(args[0]);
@@ -145,7 +145,7 @@ public class GamemodeCommand extends CMD {
 			if (args.length == 0) {
 				if (this.isPlayer()) {
 					target = (Player) sender;
-					if (this.hasPermission(SUB[3])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
+					if (this.hasPerm(SUB[3])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
 					else throw new NoPermException();
 				}
 				else throw new NotPlayerException();
@@ -153,7 +153,7 @@ public class GamemodeCommand extends CMD {
 			else if (args.length == 1) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
-					if (this.hasPermission(SUB[7])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
+					if (this.hasPerm(SUB[7])) event = new SetGamemodeEvent(sender, target, GameMode.SPECTATOR);
 					else throw new NoPermException();
 				}
 				else throw new PNOException(args[0]);

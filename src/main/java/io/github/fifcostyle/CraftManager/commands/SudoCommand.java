@@ -36,7 +36,7 @@ public class SudoCommand extends CMD {
 		else if (args.length == 2 && args[0].startsWith("-")) throw new NeAException();
 		else if (args.length > 1) 
 		{
-			if (this.hasPermission(SUB[0]))
+			if (this.hasPerm(SUB[0]))
 			{
 				/*if (args[0].startsWith("-"))
 				{

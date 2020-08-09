@@ -33,7 +33,7 @@ public class FlyCommand extends CMD {
 	{
 		if (args.length == 0) {
 			if (sender instanceof Player) {
-				if (this.hasPermission(SUB[0])) {
+				if (this.hasPerm(SUB[0])) {
         				Player target = (Player) sender;
         				if (target.getAllowFlight()) event = new SetFlyEvent(sender, target, false);
         				else event = new SetFlyEvent(sender, target, true);
@@ -43,7 +43,7 @@ public class FlyCommand extends CMD {
 		else if (args.length == 1) {
 			if (args[0].equalsIgnoreCase("on") || args[0].equalsIgnoreCase("true")) {
 				if (this.isPlayer()) {
-					if (this.hasPermission(SUB[0])) {
+					if (this.hasPerm(SUB[0])) {
 						Player target = (Player) sender;
 						event = new SetFlyEvent(sender, target, true);
 					} else throw new NoPermException();
@@ -51,13 +51,13 @@ public class FlyCommand extends CMD {
 			}
 			else if (args[0].equalsIgnoreCase("off") || args[0].equalsIgnoreCase("false")) {
 				if (this.isPlayer()) {
-					if (this.hasPermission(SUB[0])) {
+					if (this.hasPerm(SUB[0])) {
 						Player target = (Player) sender;
 						event = new SetFlyEvent(sender, target, false);
 					} else throw new NoPermException();
 				} else throw new NotPlayerException();
 			}
-			else if (this.hasPermission(SUB[1])) {
+			else if (this.hasPerm(SUB[1])) {
 				Player target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
 					if (target.getAllowFlight()) event = new SetFlyEvent(sender, target, false);

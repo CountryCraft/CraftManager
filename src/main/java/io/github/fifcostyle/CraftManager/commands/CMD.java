@@ -6,10 +6,13 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.RemoteConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import io.github.fifcostyle.CraftManager.CraftManager;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
+import io.github.fifcostyle.CraftManager.exceptions.InvalidModifierException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
 import io.github.fifcostyle.CraftManager.exceptions.NotPlayerException;
+import io.github.fifcostyle.CraftManager.exceptions.NullWorldException;
 import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
 import io.github.fifcostyle.CraftManager.exceptions.StrNotIntException;
@@ -31,6 +34,7 @@ public abstract class CMD {
 	private final String permission;
 	private final String usage;
 	private final String[] subPermissions;
+	CraftManager craft = CraftManager.craft;
 	
 	public CMD(final CommandSender sender, final String name, final String description, final String permission, final String[] subPermissions, final String usage) {
 		this.sender = sender;
@@ -65,11 +69,15 @@ public abstract class CMD {
 		return this.usage;
 	}
 	
-	public boolean hasPermission() { 
+	public void sendUsage() {
+		sender.sendMessage(craft.getMessager().prefix(this.getUsage()));
+	}
+	
+	public boolean hasPerm() { 
 		return this.sender.hasPermission(permission) || this.isConsole() || this.isRemoteConsole();
 	}
 	
-	public boolean hasPermission(final String sub) {
+	public boolean hasPerm(final String sub) {
         final String permission = this.permission + "." + sub;
         return this.sender.hasPermission(permission) || this.isConsole() || this.isRemoteConsole();
     }
@@ -87,6 +95,6 @@ public abstract class CMD {
     }
     
 	
-	public abstract void run (final CommandSender p0, final Command p1, final String p2, final String[] p3) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException, PlayerImmuneException, InvalidItemException, StrNotIntException;
+	public abstract void run (final CommandSender p0, final Command p1, final String p2, final String[] p3) throws NeAException, TmAException, NoPermException, NotPlayerException, PNOException, PlayerImmuneException, InvalidItemException, StrNotIntException, InvalidModifierException, NullWorldException;
 
 }

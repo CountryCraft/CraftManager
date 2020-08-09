@@ -37,7 +37,7 @@ public class InvseeCommand extends CMD {
 		{
 			if (this.isPlayer()) 
 			{
-				if (this.hasPermission(SUB[0]))
+				if (this.hasPerm(SUB[0]))
 				{
 					target = Bukkit.getPlayer(args[0]);
 					if (target != null) event = new OpenInvEvent(sender, (Player) sender, target.getInventory());

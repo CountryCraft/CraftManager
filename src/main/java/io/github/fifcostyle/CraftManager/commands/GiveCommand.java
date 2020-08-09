@@ -39,7 +39,7 @@ public class GiveCommand extends CMD {
 		if (args.length == 0) throw new NeAException();
 		if (args.length == 1) {
 			if (this.isPlayer()) {
-				if (this.hasPermission(SUB[0])) {
+				if (this.hasPerm(SUB[0])) {
 					try {
 						target = (Player) sender;
 						item = new ItemStack(Material.valueOf(args[0].toUpperCase()));
@@ -55,7 +55,7 @@ public class GiveCommand extends CMD {
 			else throw new NotPlayerException();
 		}
 		else if (args.length == 2) {
-			if (this.hasPermission(SUB[0])) {
+			if (this.hasPerm(SUB[0])) {
 				try {
 					item = new ItemStack(Material.valueOf(args[0].toUpperCase()));
 					if (this.isPlayer()) {
@@ -71,7 +71,7 @@ public class GiveCommand extends CMD {
 				catch (IllegalArgumentException iae) {
 					target = Bukkit.getPlayer(args[0]);
 					if (target != null) {
-						if (this.hasPermission(SUB[1])) {
+						if (this.hasPerm(SUB[1])) {
 							try {
 								item = new ItemStack(Material.valueOf(args[1].toUpperCase()));
 								item.setAmount(64);
@@ -89,7 +89,7 @@ public class GiveCommand extends CMD {
 			else throw new NoPermException();
 		}
 		else if (args.length == 3) {
-			if (this.hasPermission(SUB[1])) {
+			if (this.hasPerm(SUB[1])) {
 				target = Bukkit.getPlayer(args[0]);
 				if (target != null) {
 					try {
