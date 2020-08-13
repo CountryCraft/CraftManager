@@ -9,6 +9,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.PluginManager;
@@ -25,9 +26,6 @@ public class CraftManager extends JavaPlugin implements Listener {
 	private List<Player> onlinePlayers = new ArrayList<Player>();
 	private List<Player> vanishedPlayers = new ArrayList<Player>();
 	
-	public CraftManager() {
-		this.messager = null;
-	}
 	
 	public void onEnable() {
 		messager = new Messager();
@@ -83,6 +81,7 @@ public class CraftManager extends JavaPlugin implements Listener {
 		CraftManager.craft = null;
 	}
 	
+	
 	private void LobbyInit() {
 		World w = Bukkit.getWorld(getConfig().getString("lobby.world"));
 		Double x = getConfig().getDouble("lobby.x");
@@ -126,7 +125,7 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("cctp").setExecutor(new CmdHandler(craft));
 	}
 	
-	@EventHandler
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onCommandPreprocess(AsyncPlayerChatEvent evt)
 	{
 		if (evt.getMessage().startsWith("/")) {
