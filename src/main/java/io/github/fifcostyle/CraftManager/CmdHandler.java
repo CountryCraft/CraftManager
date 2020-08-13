@@ -23,6 +23,7 @@ import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.commands.SudoCommand;
 import io.github.fifcostyle.CraftManager.commands.TeleportCommand;
 import io.github.fifcostyle.CraftManager.commands.VanishCommand;
+import io.github.fifcostyle.CraftManager.exceptions.InvalidArgumentException;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidModifierException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
@@ -33,6 +34,7 @@ import io.github.fifcostyle.CraftManager.exceptions.PNOException;
 import io.github.fifcostyle.CraftManager.exceptions.PlayerImmuneException;
 import io.github.fifcostyle.CraftManager.exceptions.StrNotIntException;
 import io.github.fifcostyle.CraftManager.exceptions.TmAException;
+import io.github.fifcostyle.CraftManager.util.StringUtils;
 
 public class CmdHandler implements CommandExecutor {
 	CraftManager craft;
@@ -141,43 +143,59 @@ public class CmdHandler implements CommandExecutor {
 		}
 		try {
 			cmd.run(sender, command, label, args);
+			craft.getLogger().info("CMD-SUCCESS: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0));
 		}
 		catch (TmAException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.tma"));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "TmAException");
 		}
 		catch (NeAException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.nea"));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "NeAException");
 		}
 		catch (NoPermException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.noperm", cmd.getPermission(), cmd.getName()));
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "NoPermException");
 		}
 		catch (NotPlayerException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.notplayer"));
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "NotPlayerException");
 		}
 		catch (PNOException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.playernotonline", e.getMessage()));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "PNOException");
 		}
 		catch (PlayerImmuneException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.playerimmune", e.getMessage()));
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "PlayerImmuneException");
 		}
 		catch (InvalidItemException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invaliditem", e.getMessage()));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "InvalidItemException");
 		}
 		catch (StrNotIntException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.strnotint", e.getMessage()));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "StrNotIntException");
 		}
 		catch (InvalidModifierException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invalidmodifier", e.getMessage()));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "InvalidModifierException");
 		}
 		catch (NullWorldException e) {
 			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.nullworld", e.getMessage()));
 			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "NullWorlException");
+		}
+		catch (InvalidArgumentException e) {
+			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invalidargument", e.getMessage()));
+			cmd.sendUsage();
+			craft.getLogger().info("CMD-FAIL: " + sender.getName() + command.getName() + StringUtils.stringArrayToString(args, 0) + "InvalidArgumentException");
 		}
 		return true;
 	}
