@@ -12,4 +12,5 @@ lobby:
   z: 12.5
   yaw: '0'
   pitch: '0'
+
 debug: false
