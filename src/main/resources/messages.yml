@@ -17,6 +17,7 @@ exception:
   playerimmune: '&7{0}&4 is immune!'
   invaliditem: '&6{0}&4 is not a valid item'
   strnotint: '&6{0}&4 is not of type &bInteger (number)'
+  invalidargument: '&6{0}&4 is not a valid argument'
   
 fly:
   player:
