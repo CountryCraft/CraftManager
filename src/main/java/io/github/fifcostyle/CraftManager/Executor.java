@@ -14,6 +14,7 @@ import org.bukkit.inventory.PlayerInventory;
 import io.github.fifcostyle.CraftManager.events.ClearInvEvent;
 import io.github.fifcostyle.CraftManager.events.GetDebugEvent;
 import io.github.fifcostyle.CraftManager.events.GetMetadataEvent;
+import io.github.fifcostyle.CraftManager.events.GetSpeedEvent;
 import io.github.fifcostyle.CraftManager.events.GiveItemEvent;
 import io.github.fifcostyle.CraftManager.events.OpenInvEvent;
 import io.github.fifcostyle.CraftManager.events.SetDebugEvent;
@@ -22,6 +23,7 @@ import io.github.fifcostyle.CraftManager.events.SetFoodEvent;
 import io.github.fifcostyle.CraftManager.events.SetGamemodeEvent;
 import io.github.fifcostyle.CraftManager.events.SetHealthEvent;
 import io.github.fifcostyle.CraftManager.events.SetMetadataEvent;
+import io.github.fifcostyle.CraftManager.events.SetSpeedEvent;
 import io.github.fifcostyle.CraftManager.events.StaffChatEvent;
 import io.github.fifcostyle.CraftManager.events.SudoEvent;
 import io.github.fifcostyle.CraftManager.events.TeleportEvent;
@@ -199,6 +201,27 @@ public class Executor implements Listener {
 	public void SetMetadata(SetMetadataEvent e) {
 		MetadataUtils.set(e.getTarget(), e.getKey(), e.getValue());
 		e.getSender().sendMessage(craft.getMessager().format("metadata.set", e.getTarget().getName(), e.getKey(), e.getValue()));
+	}
+	
+	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
+	public void GetSpeed(GetSpeedEvent e) {
+		if (e.getFlying()) {
+			e.getSender().sendMessage(craft.getMessager().format("speed.get", e.getTarget().getName(), e.getTarget().getFlySpeed()));
+		} else {
+			e.getSender().sendMessage(craft.getMessager().format("speed.get", e.getTarget().getName(), e.getTarget().getWalkSpeed()));
+		}
+	}
+	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
+	public void SetSpeed(SetSpeedEvent e) {
+		if (e.getFlying()) {
+			e.getTarget().setFlySpeed(e.getSpeed());
+			e.getTarget().sendMessage(craft.getMessager().format("speed.set", "FLY", e.getSpeed()));
+			//add broadcast
+		} else {
+			e.getTarget().setWalkSpeed(e.getSpeed());
+			e.getTarget().sendMessage(craft.getMessager().format("speed.set", "WALK", e.getSpeed()));
+			//add broadcast
+		}
 	}
 	
 	

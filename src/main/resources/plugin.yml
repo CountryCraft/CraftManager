@@ -127,3 +127,7 @@ commands:
       permission:
       description: Teleports to a player, location or a world
       usage: /cctp
+    speed:
+      permission:
+      description: Gets or sets target player's walk / fly speed
+      usage: /speed [player] [walk/fly] {speed}

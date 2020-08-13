@@ -19,6 +19,7 @@ import io.github.fifcostyle.CraftManager.commands.InvseeCommand;
 import io.github.fifcostyle.CraftManager.commands.KillCommand;
 import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
 import io.github.fifcostyle.CraftManager.commands.SetMetadataCommand;
+import io.github.fifcostyle.CraftManager.commands.SpeedCommand;
 import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.commands.SudoCommand;
 import io.github.fifcostyle.CraftManager.commands.TeleportCommand;
@@ -139,6 +140,9 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "cctp":
 			cmd = new TeleportCommand(craft, sender);
+			break;
+		case "speed":
+			cmd = new SpeedCommand(craft, sender);
 			break;
 		}
 		try {
