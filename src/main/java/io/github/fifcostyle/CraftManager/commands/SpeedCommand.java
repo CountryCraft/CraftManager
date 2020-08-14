@@ -45,6 +45,7 @@ public class SpeedCommand extends CMD {
 		}
 		else if (args.length == 1) {
 			if (this.isPlayer()) {
+				target = (Player) sender;
 				if (this.hasPerm(SUB[0])) {
 					try {
 						Float f = Float.parseFloat(args[0]);
