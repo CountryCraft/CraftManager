@@ -123,6 +123,7 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("teleport").setExecutor(new CmdHandler(craft));
 		this.getCommand("tp").setExecutor(new CmdHandler(craft));
 		this.getCommand("cctp").setExecutor(new CmdHandler(craft));
+		this.getCommand("speed").setExecutor(new CmdHandler(craft));
 	}
 	
 	@EventHandler(priority = EventPriority.MONITOR)
