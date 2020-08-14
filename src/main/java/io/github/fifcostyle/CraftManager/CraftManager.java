@@ -28,9 +28,9 @@ public class CraftManager extends JavaPlugin implements Listener {
 	
 	
 	public void onEnable() {
+		craft = this;
 		messager = new Messager();
 		executor = new Executor(craft);
-		craft = this;
 		debugMode = getConfig().getBoolean("debug", false);
 		LobbyInit();
 		SetCmdExecutors();
