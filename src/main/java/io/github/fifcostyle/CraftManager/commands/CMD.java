@@ -1,12 +1,15 @@
 package io.github.fifcostyle.CraftManager.commands;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.RemoteConsoleCommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.PluginManager;
 
 import io.github.fifcostyle.CraftManager.CraftManager;
+import io.github.fifcostyle.CraftManager.Messager;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidArgumentException;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidModifierException;
@@ -36,6 +39,8 @@ public abstract class CMD {
 	private final String usage;
 	private final String[] subPermissions;
 	CraftManager craft = CraftManager.craft;
+	Messager msgr = craft.getMessager();
+	PluginManager pmgr = Bukkit.getPluginManager();
 	
 	public CMD(final CommandSender sender, final String name, final String description, final String permission, final String[] subPermissions, final String usage) {
 		this.sender = sender;
