@@ -1,6 +1,6 @@
 name: CraftManager
 main: io.github.fifcostyle.CraftManager.CraftManager
-version: 0.0.1
+version: 1.0.0
 author: FifcoStyle
 commands:
     fly:

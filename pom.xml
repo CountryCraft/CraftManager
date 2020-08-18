@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>tk.country-craft</groupId>
   <artifactId>CraftManager</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>CraftManager</name>
   <build>
       <plugins>
@@ -44,4 +44,5 @@
       	<url>country-craft.tk</url>
       </organization>
   
+      <url>country-craft.tk/craftmanager</url>
 </project>
