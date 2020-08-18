@@ -1,0 +1,93 @@
+#######################
+# CraftManager Messages
+####################### 
+# Be aware that some values here may change with upcoming updates
+### Do not forget to wrap each message in '' quotes
+
+prefixInfo: '&9[CountryCraft]&r '
+prefixWarn: '&9[CountryCraft&f-&c&oWARN&9]&r '
+prefixError: '&9[CountryCraft&f-&4&lERR&9]&r '
+prefixStaff: '&9[CountryCraft&f-&a&nSTAFF&9]&r '
+prefixDebug: '&9[CountryCraft&f-&d&l&oDEBUG&9]&r '
+
+exception:
+  nea: '&4Not enough arguments!'
+  tma: '&4Too many arguments!'
+  noperm: '&4You do not have permission &b({0}) &4to run &6{1}'
+  notplayer: '&4This (sub)command can be only executed by a player!'
+  playernotonline: '&7{0}&4 is not online!'
+  playerimmune: '&7{0}&4 is immune!'
+  invaliditem: '&6{0}&4 is not a valid item'
+  strnotint: '&6{0}&4 is not of type &bInteger (number)'
+  invalidargument: '&6{0}&4 is not a valid argument'
+  
+listen:
+  command:
+    success: '&7{0}&f ran command &6{1} &e{2}'
+    failed: '&7{0}&f tried to run command &6{1} &e{2}&f, but failed at &b{3}'
+    set: '&6LISTEN&f(&3{0}&f) -> &e{1}'
+
+staffchat: "&7{0}&r: {1}"
+
+fly:
+  player: "&6FLY&f -> &e{0}"
+  sender: "&7{0}&f's &6FLY&f -> &e{1}"
+  broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6FLY&f -> &e{2}"
+sethealth:
+  player: "&6HEALTH&f -> &e{0}"
+  sender: "&7{0}&f's &6HEALTH&f -> &e{1}"
+  broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6HEALTH&f -> &e{2}"
+setfood:
+  player: "&6FOOD&f -> &e{0}"
+  sender: "&7{0}&f's &6FOOD&f -> &e{1}"
+  broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6FOOD&f -> &e{2}"
+debugmode:
+  set: 
+    sender: "&6DEBUG&f -> &e{0}"
+    broadcast: "&b{0}&f(&dCMD&f): &6DEBUG&f -> &e{0}"
+  get: "&6DEBUG&f == &e{0}"
+  wrongstate: "&6DEBUG&4 must be &e{0}&4 to run this command"
+teleport:
+  player:
+    generic: "&6LOCATION&f -> &e{0}"
+    lobby: "&6LOCATION&f -> &eLOBBY"
+  broadcast:
+    generic: "&b{0}&f(&dCMD&f): &7{1}&f's &6LOCATION&f -> &e{2}"
+    lobby: "&b{0}&f(&dCMD&f): &7{1}&f's &6LOCATION -> &eLOBBY"
+  sender: 
+    generic: "&7{0}&f's &6LOCATION&f -> &e{1}"
+    lobby: "&7{0}&f's &6LOCATION&f -> &eLOBBY"
+  unsafe: "&4The location you are trying to teleport may be unsafe, to teleport anyway, please add the -o flag to your command"
+gamemode:
+  set:
+    player: "&6GAMEMODE&f -> &e{0}"
+    sender: "&7{0}&f's &6GAMEMODE&f -> &e{1}"
+    broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6GAMEMODE&f -> &e{2}" 
+  get: '&6GAMEMODE&f -> &e{0}'
+openinventory:
+  sender: "&6INVENTORY&f(&3{0}&f) -> &eOPEN"
+  broadcast: "&b{0}&f(&dCMD&f): &6INVENTORY&f(&3{1}&f) -> &eOPEN"
+giveitem:
+  player: '&6INVENTORY&f + &e{0}&f(&3{1}&f)'
+  sender: "&7{0}&f's &6INVENTORY&f -> &e{1}&f(&3{2}&f)"
+  broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6INVENTORY&f + &e{2}&f(&3{3}&f)"
+clearinv:
+  player: "&6INVENTORY&f -> &eEMPTY"
+  sender: "&7{0}&f's &6INVENTORY&f -> &eEMPTY"
+  broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6INVENTORY&f -> &eEMPTY"
+vanish:
+  player: "&6VANISH&f -> &e{0}"
+  sender: "&7{0}&f's &6VANISH&f -> &e{1}"
+  broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6VANISH&f -> &e{2}"
+metadata: 
+  get: "&7{0}&f has the following metadata matching '&b{1}&f': &e{2}"
+  set: "Set &e{2}&f at &6{1}&f to &7{0}"
+  rem: "Removed &e{1}&f from &7{0}"
+  dangerous: "This command can be potentially dangerous and should only be ran for debugging purposes! The command will be aborted in 10 seconds. To proceed, please run this command again"
+  expired: "The command has expired"
+speed:
+  get: "&7{0}&f's &6SPEED&f(&b{1}&f) = &e{2}"
+  set: 
+    player: "&6SPEED&f(&3{0}&f) -> &e{1}"
+    sender: "&7{0}&f's &6SPEED&f(&3{1}&f) -> &e{2}"
+    broadcast: "&b{0}&f(&dCMD&f): &7{1}&f's &6SPEED&f(&3{2}&f) -> &e{3}"

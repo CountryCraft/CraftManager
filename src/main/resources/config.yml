@@ -1,0 +1,16 @@
+#####################
+# CraftManager config
+#####################
+#
+
+# Location.toString() of the main lobby to be used with /lobby
+# NOTE: Yaw and Pitch must be written as strings, not as integers
+lobby:
+  world: world
+  x: 567.5
+  y: 74
+  z: 12.5
+  yaw: '0'
+  pitch: '0'
+
+debug: false
