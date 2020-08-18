@@ -1,7 +1,5 @@
 package io.github.fifcostyle.CraftManager.commands;
 
-import java.util.logging.Level;
-
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import io.github.fifcostyle.CraftManager.CraftManager;
+import io.github.fifcostyle.CraftManager.enums.PrefixLevel;
 import io.github.fifcostyle.CraftManager.events.SetMetadataEvent;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
 import io.github.fifcostyle.CraftManager.exceptions.NoPermException;
@@ -51,7 +50,7 @@ public class SetMetadataCommand extends CMD {
 								MetadataUtils.rem(psender, mKey);
 							} else {
 								MetadataUtils.set(psender, mKey, true);
-								psender.sendMessage(craft.getMessager().format(Level.WARNING, "metadata.dangerous"));
+								psender.sendMessage(craft.getMessager().format(PrefixLevel.WARNING, "metadata.dangerous"));
 								new BukkitRunnable() {
 									public void run() {
 										if (MetadataUtils.has(psender, mKey)) {
@@ -62,7 +61,7 @@ public class SetMetadataCommand extends CMD {
 								}.runTaskLater(craft, 200);
 							}
 						} else throw new PNOException(args[0]);
-					} else sender.sendMessage(craft.getMessager().format(Level.SEVERE, "debugmode.wrongstate", true));
+					} else sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "debugmode.wrongstate", true));
 				} else throw new NotPlayerException();
 			} else throw new NoPermException();
 		}
