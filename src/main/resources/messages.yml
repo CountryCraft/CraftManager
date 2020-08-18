@@ -6,7 +6,9 @@
 
 prefixInfo: '&9[CountryCraft]&r '
 prefixWarn: '&9[CountryCraft&f-&c&oWARN&9]&r '
-prefixSevere: '&9[CountryCraft&f-&4&lERR&9]&r '
+prefixError: '&9[CountryCraft&f-&4&lERR&9]&r '
+prefixStaff: '&9[CountryCraft&f-&a&nSTAFF&9]&r '
+prefixDebug: '&9[CountryCraft&f-&d&l&oDEBUG&9]&r '
 
 exception:
   nea: '&4Not enough arguments!'
