@@ -32,8 +32,10 @@ import io.github.fifcostyle.CraftManager.util.MetadataUtils;
 
 public class Executor implements Listener {
 	CraftManager craft;
+	Messager msgr;
 	public Executor(CraftManager craft) {
 		this.craft = CraftManager.craft;
+		this.msgr = craft.getMessager();
 	}
 	
 	@EventHandler(ignoreCancelled = true, priority = EventPriority.MONITOR)
