@@ -132,5 +132,6 @@ public class CraftManager extends JavaPlugin implements Listener {
 		if (evt.getMessage().startsWith("/")) {
 			lgr.info("Command " + evt.getMessage() + " was sent");
 		}
+		this.getCommand("listen").setExecutor(new CmdHandler(craft));
 	}
 }

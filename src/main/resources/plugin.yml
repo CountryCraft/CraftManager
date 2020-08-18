@@ -131,3 +131,7 @@ commands:
       permission:
       description: Gets or sets target player's walk / fly speed
       usage: /speed [player] [walk/fly] {speed}
+    listen:
+      permission:
+      description: Toggles listening to different events
+      usage: /listen {event/action} {level}

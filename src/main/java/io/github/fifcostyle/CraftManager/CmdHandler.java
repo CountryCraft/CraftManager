@@ -17,6 +17,7 @@ import io.github.fifcostyle.CraftManager.commands.GiveCommand;
 import io.github.fifcostyle.CraftManager.commands.HealCommand;
 import io.github.fifcostyle.CraftManager.commands.InvseeCommand;
 import io.github.fifcostyle.CraftManager.commands.KillCommand;
+import io.github.fifcostyle.CraftManager.commands.ListenCommand;
 import io.github.fifcostyle.CraftManager.commands.LobbyCommand;
 import io.github.fifcostyle.CraftManager.commands.SetMetadataCommand;
 import io.github.fifcostyle.CraftManager.commands.SpeedCommand;
@@ -141,6 +142,9 @@ public class CmdHandler implements CommandExecutor {
 			break;
 		case "speed":
 			cmd = new SpeedCommand(craft, sender);
+			break;
+		case "listen":
+			cmd = new ListenCommand(sender);
 			break;
 		}
 		try {
