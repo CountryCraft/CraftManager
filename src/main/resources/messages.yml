@@ -71,5 +71,6 @@ metadata:
   set: 'Set &e{2}&f at &6{1}&f to &7{0}'
   rem: 'Removed &e{1}&f from &7{0}'
 speed:
-  get: '&7{0}&f's &6SPEED&f(&b{1}&f) = &e{2}'
-  set: '&6SPEED&f(&b{0}&f) -> &e{1}'
+  get: "&7{0}&f's &6SPEED&f(&b{1}&f) = &e{2}"
+  set: 
+    player: "&6SPEED&f(&3{0}&f) -> &e{1}"

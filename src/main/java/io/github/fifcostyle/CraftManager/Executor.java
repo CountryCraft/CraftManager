@@ -215,12 +215,10 @@ public class Executor implements Listener {
 	public void SetSpeed(SetSpeedEvent e) {
 		if (e.getFlying()) {
 			e.getTarget().setFlySpeed(e.getSpeed());
-			e.getTarget().sendMessage(craft.getMessager().format("speed.set", "FLY", e.getSpeed()));
-			//add broadcast
+			e.getTarget().sendMessage(msgr.format("speed.set.player", "FLY", e.getSpeed()*10));
 		} else {
 			e.getTarget().setWalkSpeed(e.getSpeed());
-			e.getTarget().sendMessage(craft.getMessager().format("speed.set", "WALK", e.getSpeed()));
-			//add broadcast
+			e.getTarget().sendMessage(msgr.format("speed.set.player", "WALK", e.getSpeed()*10));
 		}
 	}
 	

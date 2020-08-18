@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import io.github.fifcostyle.CraftManager.CraftManager;
+import io.github.fifcostyle.CraftManager.enums.PrefixLevel;
 import io.github.fifcostyle.CraftManager.events.GetSpeedEvent;
 import io.github.fifcostyle.CraftManager.events.SetSpeedEvent;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidArgumentException;
@@ -49,7 +50,14 @@ public class SpeedCommand extends CMD {
 				if (this.hasPerm(SUB[0])) {
 					try {
 						Float f = Float.parseFloat(args[0]);
-						event = new SetSpeedEvent(sender, target, f);
+						if (!(f > 10)) {
+							Float ff = 10f;
+							Float fff = f/ff;
+							event = new SetSpeedEvent(sender, target, fff);
+						} else {
+							sender.sendMessage(craft.getMessager().prefix(PrefixLevel.ERROR, "The speed value must be lower or equal to 10!"));
+							throw new InvalidArgumentException(args[0]);
+						}
 					} catch (NumberFormatException e) {
 						throw new StrNotIntException(args[0]);
 					}
@@ -61,7 +69,11 @@ public class SpeedCommand extends CMD {
 				if (this.hasPerm(SUB[1])) {
 					try {
 						Float f = Float.parseFloat(args[1]);
-						event = new SetSpeedEvent(sender, target, f);
+						if (!(f > 10)) {
+							Float ff = 10f;
+							Float fff = f/ff;
+							event = new SetSpeedEvent(sender, target, fff);
+						} else sender.sendMessage(craft.getMessager().prefix(PrefixLevel.ERROR, "The speed value must be lower or equal to 10!")); throw new InvalidArgumentException(args[1]);
 					} catch (NumberFormatException e) {
 						throw new StrNotIntException(args[1]);
 					}
@@ -73,7 +85,11 @@ public class SpeedCommand extends CMD {
 					if (this.hasPerm(SUB[0])) {
 						try {
 							Float f = Float.parseFloat(args[1]);
-							event = new SetSpeedEvent(sender, target, f, false);
+							if (!(f > 10)) {
+								Float ff = 10f;
+								Float fff = f/ff;
+								event = new SetSpeedEvent(sender, target, fff, true);
+							} else sender.sendMessage(craft.getMessager().prefix(PrefixLevel.ERROR, "The speed value must be lower or equal to 10!")); throw new InvalidArgumentException(args[1]);
 						} catch (NumberFormatException e) {
 							throw new StrNotIntException(args[1]);
 						}
@@ -86,7 +102,11 @@ public class SpeedCommand extends CMD {
 					if (this.hasPerm(SUB[0])) {
 						try {
 							Float f = Float.parseFloat(args[1]);
-							event = new SetSpeedEvent(sender, target, f, true);
+							if (!(f > 10)) {
+								Float ff = 10f;
+								Float fff = f/ff;
+								event = new SetSpeedEvent(sender, target, fff, true);
+							} else sender.sendMessage(craft.getMessager().prefix(PrefixLevel.ERROR, "The speed value must be lower or equal to 10!")); throw new InvalidArgumentException(args[1]);
 						} catch (NumberFormatException e) {
 							throw new StrNotIntException(args[1]);
 						}
@@ -100,7 +120,11 @@ public class SpeedCommand extends CMD {
 					if (args[1].equalsIgnoreCase("walk")) {
 						try {
 							Float f = Float.parseFloat(args[2]);
-							event = new SetSpeedEvent(sender, target, f, false);
+							if (!(f > 10)) {
+								Float ff = 10f;
+								Float fff = f/ff;
+								event = new SetSpeedEvent(sender, target, fff, false);
+							} else sender.sendMessage(craft.getMessager().prefix(PrefixLevel.ERROR, "The speed value must be lower or equal to 10!")); throw new InvalidArgumentException(args[2]);
 						} catch (NumberFormatException e) {
 							throw new StrNotIntException(args[2]);
 						}
@@ -108,7 +132,11 @@ public class SpeedCommand extends CMD {
 					else if (args[1].equalsIgnoreCase("fly")) {
 						try {
 							Float f = Float.parseFloat(args[2]);
-							event = new SetSpeedEvent(sender, target, f, true);
+							if (!(f > 10)) {
+								Float ff = 10f;
+								Float fff = f/ff;
+								event = new SetSpeedEvent(sender, target, fff, true);
+							} else sender.sendMessage(craft.getMessager().prefix(PrefixLevel.ERROR, "The speed value must be lower or equal to 10!")); throw new InvalidArgumentException(args[2]);
 						} catch (NumberFormatException e) {
 							throw new StrNotIntException(args[2]);
 						}
