@@ -1,7 +1,5 @@
 package io.github.fifcostyle.CraftManager;
 
-import java.util.logging.Level;
-
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,6 +23,8 @@ import io.github.fifcostyle.CraftManager.commands.StaffChatCommand;
 import io.github.fifcostyle.CraftManager.commands.SudoCommand;
 import io.github.fifcostyle.CraftManager.commands.TeleportCommand;
 import io.github.fifcostyle.CraftManager.commands.VanishCommand;
+import io.github.fifcostyle.CraftManager.enums.PrefixLevel;
+import io.github.fifcostyle.CraftManager.exceptions.InvalidArgumentException;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidItemException;
 import io.github.fifcostyle.CraftManager.exceptions.InvalidModifierException;
 import io.github.fifcostyle.CraftManager.exceptions.NeAException;
@@ -149,43 +149,59 @@ public class CmdHandler implements CommandExecutor {
 		}
 		try {
 			cmd.run(sender, command, label, args);
-		}
-		catch (TmAException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.tma"));
-			cmd.sendUsage();
+			CraftLogger.LogCmd(sender, command, label, args);
 		}
 		catch (NeAException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.nea"));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.nea"));
 			cmd.sendUsage();
+			CraftLogger.LogCmd("Not enough arguments", sender, command, label, args);
+		}
+		catch (TmAException e) {
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.tma"));
+			cmd.sendUsage();
+			CraftLogger.LogCmd("Too many arguments", sender, command, label, args);
 		}
 		catch (NoPermException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.noperm", cmd.getPermission(), cmd.getName()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.noperm", cmd.getPermission(), cmd.getName()));
+			CraftLogger.LogCmd("No permission", sender, command, label, args);
 		}
 		catch (NotPlayerException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.notplayer"));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.notplayer"));
+			CraftLogger.LogCmd("Not player", sender, command, label, args);
 		}
 		catch (PNOException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.playernotonline", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.playernotonline", e.getMessage()));
 			cmd.sendUsage();
+			CraftLogger.LogCmd("Player not online", sender, command, label, args);
 		}
 		catch (PlayerImmuneException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.playerimmune", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.playerimmune", e.getMessage()));
+			CraftLogger.LogCmd("Player immune", sender, command, label, args);
 		}
 		catch (InvalidItemException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invaliditem", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.invaliditem", e.getMessage()));
 			cmd.sendUsage();
+			CraftLogger.LogCmd("Invalid item", sender, command, label, args);
 		}
 		catch (StrNotIntException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.strnotint", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.strnotint", e.getMessage()));
 			cmd.sendUsage();
+			CraftLogger.LogCmd("String not Integer", sender, command, label, args);
 		}
 		catch (InvalidModifierException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.invalidmodifier", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.invalidmodifier", e.getMessage()));
 			cmd.sendUsage();
+			CraftLogger.LogCmd("Invalid modifier", sender, command, label, args);
 		}
 		catch (NullWorldException e) {
-			sender.sendMessage(craft.getMessager().format(Level.SEVERE, "exception.nullworld", e.getMessage()));
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.nullworld", e.getMessage()));
 			cmd.sendUsage();
+			CraftLogger.LogCmd("Null world", sender, command, label, args);
+		}
+		catch (InvalidArgumentException e) {
+			sender.sendMessage(craft.getMessager().format(PrefixLevel.ERROR, "exception.invalidargument", e.getMessage()));
+			cmd.sendUsage();
+			CraftLogger.LogCmd("Invalid argument", sender, command, label, args);
 		}
 		return true;
 	}

@@ -21,6 +21,11 @@ exception:
   strnotint: '&6{0}&4 is not of type &bInteger (number)'
   invalidargument: '&6{0}&4 is not a valid argument'
   
+listen:
+  command:
+    success: '&7{0}&f ran command &6{1} &e{2}'
+    failed: '&7{0}&f tried to run command &6{1} &e{2}&f, but failed at &b{3}'
+    set: '&6LISTEN&f(&3{0}&f) -> &e{1}'
 fly:
   player:
     true: '&6FLY&f -> &aON'
