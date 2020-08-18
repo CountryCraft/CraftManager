@@ -8,10 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -35,7 +32,6 @@ public class CraftManager extends JavaPlugin implements Listener {
 		LobbyInit();
 		SetCmdExecutors();
 		pmgr.registerEvents(new Executor(craft), this);
-		pmgr.registerEvents(this, this);
 		lgr.info("CraftManager has been enabled!");
 	}
 	
@@ -124,14 +120,6 @@ public class CraftManager extends JavaPlugin implements Listener {
 		this.getCommand("tp").setExecutor(new CmdHandler(craft));
 		this.getCommand("cctp").setExecutor(new CmdHandler(craft));
 		this.getCommand("speed").setExecutor(new CmdHandler(craft));
-	}
-	
-	@EventHandler(priority = EventPriority.MONITOR)
-	public void onCommandPreprocess(AsyncPlayerChatEvent evt)
-	{
-		if (evt.getMessage().startsWith("/")) {
-			lgr.info("Command " + evt.getMessage() + " was sent");
-		}
 		this.getCommand("listen").setExecutor(new CmdHandler(craft));
 	}
 }
