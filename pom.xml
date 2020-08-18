@@ -45,4 +45,8 @@
       </organization>
   
       <url>country-craft.tk/craftmanager</url>
+      <issueManagement>
+      	<system>GitHub</system>
+      	<url>github.com/CountryCraft/CraftManager</url>
+      </issueManagement>
 </project>
