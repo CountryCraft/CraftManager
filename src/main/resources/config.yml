@@ -3,14 +3,21 @@
 #####################
 #
 
-# Location.toString() of the main lobby to be used with /lobby
+# Location.toString() of the main spawnpoint to be used with /spawn
 # NOTE: Yaw and Pitch must be written as strings, not as integers
-lobby:
+spawn:
   world: world
-  x: 567.5
-  y: 74
-  z: 12.5
+  x: 0
+  y: 100
+  z: 0
   yaw: '0'
   pitch: '0'
 
 debug: false
+
+# Whether the server is part of a bungeecord proxy
+bungee: false
+# The name of the server that will be used in cross-server messages
+servername: CraftServer
+# Whether to enable the server selector on this server, only works when mode > 0 
+enableServerSelector: false

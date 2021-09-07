@@ -4,11 +4,10 @@
 # Be aware that some values here may change with upcoming updates
 ### Do not forget to wrap each message in '' quotes
 
-prefixInfo: '&9[CountryCraft]&r '
-prefixWarn: '&9[CountryCraft&f-&c&oWARN&9]&r '
-prefixError: '&9[CountryCraft&f-&4&lERR&9]&r '
-prefixStaff: '&9[CountryCraft&f-&a&nSTAFF&9]&r '
-prefixDebug: '&9[CountryCraft&f-&d&l&oDEBUG&9]&r '
+prefixInfo: '&9[EmpireMC]&r '
+prefixWarn: '&9[EmpireMC&f-&c&oWARN&9]&r '
+prefixError: '&9[EmpireMC&f-&4&lERR&9]&r '
+prefixDebug: '&9[EmpireMC&f-&d&l&oDEBUG&9]&r '
 
 exception:
   nea: '&4Not enough arguments!'
@@ -27,7 +26,10 @@ listen:
     failed: '&7{0}&f tried to run command &6{1} &e{2}&f, but failed at &b{3}'
     set: '&6LISTEN&f(&3{0}&f) -> &e{1}'
 
-staffchat: "&7{0}&r: {1}"
+staffchat: "&9[{0}] &7{1}&r: {2}"
+staffjoin: "&9{1} has joined {0}"
+staffswitch: "&9{2} has switched to {1} from {0}"
+staffleave: "&9{1} has left {0}"
 
 fly:
   player: "&6FLY&f -> &e{0}"

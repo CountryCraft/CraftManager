@@ -1,6 +1,7 @@
 name: CraftManager
-main: io.github.fifcostyle.CraftManager.CraftManager
-version: 1.0.0
+main: io.github.antalafilip.CraftManager.CraftManager
+version: 1.0.1
+api-version: 1.16
 author: FifcoStyle
 commands:
     fly:
@@ -31,22 +32,10 @@ commands:
       permission:
       description: Sends a staff-only message
       usage: /sc {message}
-    lobby:
+    spawn:
       permission:
-      description: Teleports target to lobby
-      usage: /lobby [player]
-    l:
-      permission:
-      description: Teleports target to lobby
-      usage: /l [player]
-    hub:
-      permission:
-      description: Teleports target to lobby
-      usage: /hub [player]
-    h:
-      permission:
-      description: Teleports target to lobby
-      usage: /h [player]
+      description: Teleports target to the spawnpoint
+      usage: /spawn [player]
     sudo:
       permission:
       description: Runs a command as the target user
@@ -135,3 +124,27 @@ commands:
       permission:
       description: Toggles listening to different events
       usage: /listen {event/action} {level}
+    menu:
+      permission:
+      description: Opens the server menu
+      usage: /menu
+    message:
+      permission:
+      description: Messages a player
+      usage: /message {player} {message}
+    msg:
+      permission:
+      description: Messages a player
+      usage: /msg {player} {message}
+    tell:
+      permission:
+      description: Messages a player
+      usage: /tell {player} {message}
+    whisper:
+      permission:
+      description: Messages a player
+      usage: /whisper {player} {message}
+    w:
+      permission:
+      description: Messages a player
+      usage: /w {player} {message}
